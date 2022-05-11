@@ -8,6 +8,9 @@ public class Mixer : MonoBehaviour, IClikable
     // Start is called before the first frame update
     bool isMixing = false;
     [SerializeField] MusicMGR MM;
+    [SerializeField] GameObject cupPlace;
+
+    public GameObject CupPlace { get => cupPlace; set => cupPlace = value; }
 
     public void OnClick()
     {
