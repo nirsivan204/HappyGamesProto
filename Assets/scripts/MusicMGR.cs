@@ -31,7 +31,8 @@ public class MusicMGR : MonoBehaviour
     {
         None = 0,
 
-        mixer = 1,
+        mixerRun = 1,
+        mixerEnd = 2,
 
         // UI_Sounds
         Click_01 = 100,
@@ -47,6 +48,7 @@ public class MusicMGR : MonoBehaviour
     public enum AudioSourceTypes
     {
         None,
+        Mixer,
         UI,
         Gameplay,
         Music,
@@ -69,12 +71,25 @@ public class MusicMGR : MonoBehaviour
 
     }
 
+    public void Stop_Sound(SoundTypes soundType)
+    {
+        AudioSource source = Get_AudioSource_Of(soundType);
+
+        Stop_Sound(source);
+
+    }
+
     private void Play_Sound(AudioClip clip, AudioSource source)
     {
         source.clip = clip;
         source.pitch = 1;
 
         source.Play();
+    }
+
+    private void Stop_Sound(AudioSource source)
+    {
+        source.Stop();
     }
 
 
@@ -84,6 +99,9 @@ public class MusicMGR : MonoBehaviour
         {
             case SoundTypes.None:
                 break;
+            case SoundTypes.mixerRun:
+            case SoundTypes.mixerEnd:
+                return Get_AudioSource_By_Type(AudioSourceTypes.Mixer);
             case SoundTypes.Click_01:
                 return Get_AudioSource_By_Type(AudioSourceTypes.UI);
             case SoundTypes.BG_Music_1:

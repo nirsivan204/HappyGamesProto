@@ -18,15 +18,22 @@ public class TouchHandler : MonoBehaviour
             Camera.main.gameObject.AddComponent<PhysicsRaycaster>();
         }
     }
-    private void FixedUpdate()
+
+    private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Ray raycast = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit raycastHit;
             if (Physics.Raycast(raycast, out raycastHit))
             {
                 Debug.Log("Something Hit," + raycastHit.collider.gameObject);
+                IClikable clickable = raycastHit.collider.gameObject.GetComponent(typeof(IClikable)) as IClikable;
+                if (clickable != null)
+                {
+                    clickable.OnClick();
+
+                }
             }
         }
     }
