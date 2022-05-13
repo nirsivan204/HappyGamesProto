@@ -12,24 +12,43 @@ public class GameMGR : MonoBehaviour
     [SerializeField] Mixer mixer;
     [SerializeField] List<Drink> requests;
     [SerializeField] GameObject[] ingrediantsPrefabsDictionary; // should be done with dictionary, but cannot be serialized and needed to be simplified for the prototype
+    [SerializeField] GameObject[] addOnPrefabsDictionary; // should be done with dictionary, but cannot be serialized and needed to be simplified for the prototype
     [SerializeField] GameObject workingStation;
+    [SerializeField] ButtonMGR buttonMGR;
     Cup cupInProgress;
     public enum DrinkBase
     {
-        Carrot,
-        Peanut,
-        Tomato,
-        None
+        CARROT,
+        PEANUT,
+        TOMATO,
+        NONE
     }
 
-    public struct Drink
+    public enum AddOn
+    {
+        ICE_CUBES,
+        STRAW,
+        NONE
+    }
+
+
+
+    public class Drink
     {
         public DrinkBase drinkBase;
-
-        public Drink(DrinkBase drinkBase)
+        public AddOn addOn;
+        public bool isEqual(Drink required)
         {
-            this.drinkBase = drinkBase;
+            if (required.drinkBase == this.drinkBase)
+            {
+                if(required.addOn == this.addOn)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
+
     }
 
     public void getNewCup()
@@ -47,6 +66,7 @@ public class GameMGR : MonoBehaviour
 
     internal void PutCupInWorkStation()
     {
+        buttonMGR.showAddOns();
         cupInProgress.transform.position = workingStation.transform.position;
         mixer.takeCupOut();
     }
@@ -56,10 +76,16 @@ public class GameMGR : MonoBehaviour
         mixer.putInsideMixer(ingrediantsPrefabsDictionary[(int)drinkBase], drinkBase);
     }
 
+
+    internal void putAddOnInCup(AddOn addOn)
+    {
+        cupInProgress.putAddOn(addOnPrefabsDictionary[(int)addOn], addOn);
+    }
+
     public void serveDrink()
     {
         Drink required = requests[0];
-        if(required.drinkBase == drinkInProgress.drinkBase)
+        if(drinkInProgress.isEqual(required))
         {
             print("success");
         }

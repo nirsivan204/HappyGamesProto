@@ -11,7 +11,7 @@ public class Mixer : MonoBehaviour, IClikable
     [SerializeField] GameObject cupPlace;
     [SerializeField] float timeToMix = 3;
     private float mixTotalTime = 0;
-    private GameMGR.DrinkBase baseInMixer = GameMGR.DrinkBase.None;
+    private GameMGR.DrinkBase baseInMixer = GameMGR.DrinkBase.NONE;
     private bool isMixReady = false;
     private bool MixStarted = false;
     private bool isCupInMixer = false;
@@ -46,7 +46,7 @@ public class Mixer : MonoBehaviour, IClikable
             {
                 cupInMixer.fillCupWithBase(baseInMixer);
                 MixStarted = false;
-                baseInMixer = GameMGR.DrinkBase.None;
+                baseInMixer = GameMGR.DrinkBase.NONE;
                 isMixReady = false;
                 Destroy(ingInsideMixer);
             }
@@ -67,7 +67,7 @@ public class Mixer : MonoBehaviour, IClikable
     {
         MM.Play_Sound(MusicMGR.SoundTypes.mixerRun, true);
         isMixing = true;
-        if (!MixStarted && baseInMixer != GameMGR.DrinkBase.None)
+        if (!MixStarted && baseInMixer != GameMGR.DrinkBase.NONE)
         {
             MixStarted = true;
             mixTotalTime = 0;
@@ -85,7 +85,7 @@ public class Mixer : MonoBehaviour, IClikable
     // Update is called once per frame
     void Update()
     {
-        if(isMixing && baseInMixer!= GameMGR.DrinkBase.None)
+        if(isMixing && baseInMixer!= GameMGR.DrinkBase.NONE)
         {
             mixTotalTime += Time.deltaTime;
             if(mixTotalTime > timeToMix)

@@ -22,6 +22,7 @@ public class Cup : MonoBehaviour, IClikable
 
     public void init(GameMGR gameMGR)
     {
+        drink = new GameMGR.Drink();
         GM = gameMGR; 
     }
 
@@ -29,9 +30,6 @@ public class Cup : MonoBehaviour, IClikable
     {
         switch (state) 
         {
-/*            case CupState.None:
-                putCupInMixer();
-                break;*/
             case CupState.HasBase:
                 GetCupOut();
                 break;
@@ -51,5 +49,11 @@ public class Cup : MonoBehaviour, IClikable
         this.drink.drinkBase = drinkBase;
         baseLiquid.SetActive(true);
         state = CupState.HasBase;
+    }
+
+    internal void putAddOn(GameObject addOnPrefab, GameMGR.AddOn addOn)
+    {
+        Instantiate(addOnPrefab,transform);
+        this.drink.addOn = addOn;
     }
 }
