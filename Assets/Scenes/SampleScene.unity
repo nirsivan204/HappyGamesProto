@@ -1502,6 +1502,8 @@ MonoBehaviour:
   mixer: {fileID: 260256268}
   requests:
   - drinkBase: 0
+    addOn: 0
+  - drinkBase: 0
     addOn: 2
   ingrediantsPrefabsDictionary:
   - {fileID: 1341161170121390, guid: 9924d36cc89e7b640a64243b24fe19fe, type: 3}

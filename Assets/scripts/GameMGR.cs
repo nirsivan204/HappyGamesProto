@@ -142,6 +142,7 @@ public class GameMGR : MonoBehaviour
         cupInDisplay.init(this);
         cupInDisplay.fillCupWithBase(request.drinkBase);
         cupInDisplay.putAddOn(addOnPrefabsDictionary[(int)request.addOn],request.addOn);
+        cupInDisplay.State = Cup.CupState.ON_DISPLAY;
     }
     
 }

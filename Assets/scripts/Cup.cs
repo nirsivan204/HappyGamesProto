@@ -13,6 +13,7 @@ public class Cup : MonoBehaviour, IClikable
         IN_MIXER,
         HAS_BASE,
         IN_WORKING_STATION,
+        ON_DISPLAY,
 
     }
     private GameMGR.Drink drink;
@@ -20,6 +21,7 @@ public class Cup : MonoBehaviour, IClikable
     private GameMGR GM;
 
     public GameMGR.Drink Drink { get => drink; set => drink = value; }
+    public CupState State { get => state; set => state = value; }
 
     public void init(GameMGR gameMGR)
     {
@@ -64,4 +66,5 @@ public class Cup : MonoBehaviour, IClikable
             this.drink.addOn = addOn;
         }
     }
+
 }
