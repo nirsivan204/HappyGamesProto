@@ -13,19 +13,26 @@ public class Mixer : MonoBehaviour, IClikable
     private float mixTotalTime = 0;
     private GameMGR.DrinkBase baseInMixer = GameMGR.DrinkBase.None;
     private bool isMixReady = false;
+    private bool MixStarted = false;
     private bool isCupInMixer = false;
     private Cup cupInMixer;
     [SerializeField] GameObject insideMixerSpot;
+    GameObject ingInsideMixer = null;
 
     public GameObject CupPlace { get => cupPlace; set => cupPlace = value; }
-    public bool IsCupInMixer { get => isCupInMixer; set => isCupInMixer = value; }
-    public Cup CupInMixer { get => cupInMixer; set => cupInMixer = value; }
 
     public void putInsideMixer(GameObject ingrediant, GameMGR.DrinkBase type )
     {
-        Instantiate(ingrediant, insideMixerSpot.transform);
+        ingInsideMixer = Instantiate(ingrediant, insideMixerSpot.transform);
         baseInMixer = type;
     }
+
+    public void PutCupInMixer(Cup cup)
+    {
+        cupInMixer = cup;
+        isCupInMixer = true;
+    }
+
 
     public void OnClick()
     {
@@ -38,6 +45,10 @@ public class Mixer : MonoBehaviour, IClikable
             if (isMixReady && isCupInMixer)
             {
                 cupInMixer.fillCupWithBase(baseInMixer);
+                MixStarted = false;
+                baseInMixer = GameMGR.DrinkBase.None;
+                isMixReady = false;
+                Destroy(ingInsideMixer);
             }
             else
             {
@@ -46,11 +57,21 @@ public class Mixer : MonoBehaviour, IClikable
         }
     }
 
+    public void takeCupOut()
+    {
+        isCupInMixer = false;
+        cupInMixer = null;
+    }
+
     private void startMixing()
     {
         MM.Play_Sound(MusicMGR.SoundTypes.mixerRun, true);
         isMixing = true;
-        mixTotalTime = 0;
+        if (!MixStarted && baseInMixer != GameMGR.DrinkBase.None)
+        {
+            MixStarted = true;
+            mixTotalTime = 0;
+        }
     }
 
     private void stopMixing()

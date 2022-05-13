@@ -6,6 +6,7 @@ using UnityEngine;
 public class Cup : MonoBehaviour, IClikable
 {
     // Start is called before the first frame update
+    [SerializeField] GameObject baseLiquid;
     public enum CupState
     {
         None,
@@ -15,8 +16,14 @@ public class Cup : MonoBehaviour, IClikable
     }
     private GameMGR.Drink drink;
     private CupState state = CupState.None;
+    private GameMGR GM;
 
     public GameMGR.Drink Drink { get => drink; set => drink = value; }
+
+    public void init(GameMGR gameMGR)
+    {
+        GM = gameMGR; 
+    }
 
     public void OnClick()
     {
@@ -32,25 +39,17 @@ public class Cup : MonoBehaviour, IClikable
                 break;
 
         }
-        if (state == CupState.None)
-        {
-            putCupInMixer();
-        }
-
     }
 
     private void GetCupOut()
     {
-        throw new NotImplementedException();
-    }
-
-    private void putCupInMixer()
-    {
-        throw new NotImplementedException();
+        GM.PutCupInWorkStation();
     }
 
     public void fillCupWithBase(GameMGR.DrinkBase drinkBase)
     {
         this.drink.drinkBase = drinkBase;
+        baseLiquid.SetActive(true);
+        state = CupState.HasBase;
     }
 }
