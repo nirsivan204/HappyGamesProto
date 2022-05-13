@@ -12,6 +12,8 @@ public class GameMGR : MonoBehaviour
     [SerializeField] Mixer mixer;
     [SerializeField] List<Drink> requests;
     [SerializeField] GameObject[] ingrediantsPrefabsDictionary; // should be done with dictionary, but cannot be serialized and needed to be simplified for the prototype
+    [SerializeField] GameObject workingStation;
+    Cup cupInProgress;
     public enum DrinkBase
     {
         Carrot,
@@ -36,11 +38,17 @@ public class GameMGR : MonoBehaviour
         {
             isCupInProgress = true;
 
-            Cup cup = Instantiate(NewDrinkPrefab, mixer.CupPlace.transform).GetComponent<Cup>(); ;
-            drinkInProgress = cup.Drink;
-            mixer.IsCupInMixer = true;
-            mixer.CupInMixer = cup;
+            cupInProgress = Instantiate(NewDrinkPrefab, mixer.CupPlace.transform).GetComponent<Cup>();
+            cupInProgress.init(this);
+            drinkInProgress = cupInProgress.Drink;
+            mixer.PutCupInMixer(cupInProgress);
         }
+    }
+
+    internal void PutCupInWorkStation()
+    {
+        cupInProgress.transform.position = workingStation.transform.position;
+        mixer.takeCupOut();
     }
 
     public void putInsideMixer(DrinkBase drinkBase)
