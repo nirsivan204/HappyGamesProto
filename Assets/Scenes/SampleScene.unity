@@ -1193,6 +1193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1359823624}
+  - component: {fileID: 1359823625}
   m_Layer: 0
   m_Name: requestPlace
   m_TagString: Untagged
@@ -1215,6 +1216,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1359823625
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359823623}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 69a273ff730a29047bae2a440f438403, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1437280233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,6 +1509,8 @@ MonoBehaviour:
   - {fileID: 0}
   addOnPrefabsDictionary:
   - {fileID: 413146325268533533, guid: 11ce1c9369be8e7459a984b7c857d893, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   workingStation: {fileID: 1228722453}
   buttonMGR: {fileID: 1193829004}
   musicMGR: {fileID: 785858160}
