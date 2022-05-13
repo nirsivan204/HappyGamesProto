@@ -23,8 +23,11 @@ public class Mixer : MonoBehaviour, IClikable
 
     public void putInsideMixer(GameObject ingrediant, GameMGR.DrinkBase type )
     {
-        ingInsideMixer = Instantiate(ingrediant, insideMixerSpot.transform);
-        baseInMixer = type;
+        if (!isMixing)
+        {
+            ingInsideMixer = Instantiate(ingrediant, insideMixerSpot.transform);
+            baseInMixer = type;
+        }
     }
 
     public void PutCupInMixer(Cup cup)

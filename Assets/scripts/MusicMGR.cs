@@ -38,7 +38,8 @@ public class MusicMGR : MonoBehaviour
         Click_01 = 100,
 
         // Gameplay Sounds
-
+        SUCCESS = 201,
+        FAIL = 202,
         // Music
         BG_Music_1 = 300,
         BG_Music_2 = 301,

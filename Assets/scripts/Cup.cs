@@ -9,13 +9,14 @@ public class Cup : MonoBehaviour, IClikable
     [SerializeField] GameObject baseLiquid;
     public enum CupState
     {
-        None,
-        inMixer,
-        HasBase,
+        NONE,
+        IN_MIXER,
+        HAS_BASE,
+        IN_WORKING_STATION,
 
     }
     private GameMGR.Drink drink;
-    private CupState state = CupState.None;
+    private CupState state = CupState.NONE;
     private GameMGR GM;
 
     public GameMGR.Drink Drink { get => drink; set => drink = value; }
@@ -30,8 +31,11 @@ public class Cup : MonoBehaviour, IClikable
     {
         switch (state) 
         {
-            case CupState.HasBase:
+            case CupState.HAS_BASE:
                 GetCupOut();
+                break;
+            case CupState.IN_WORKING_STATION:
+                GM.serveDrink();
                 break;
             default:
                 break;
@@ -42,13 +46,14 @@ public class Cup : MonoBehaviour, IClikable
     private void GetCupOut()
     {
         GM.PutCupInWorkStation();
+        state = CupState.IN_WORKING_STATION;
     }
 
     public void fillCupWithBase(GameMGR.DrinkBase drinkBase)
     {
         this.drink.drinkBase = drinkBase;
         baseLiquid.SetActive(true);
-        state = CupState.HasBase;
+        state = CupState.HAS_BASE;
     }
 
     internal void putAddOn(GameObject addOnPrefab, GameMGR.AddOn addOn)

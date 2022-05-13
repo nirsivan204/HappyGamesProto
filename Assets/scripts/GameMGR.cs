@@ -11,11 +11,13 @@ public class GameMGR : MonoBehaviour
     [SerializeField] GameObject NewDrinkPrefab;
     [SerializeField] Mixer mixer;
     [SerializeField] List<Drink> requests;
+    int shakesServed = 0;
     [SerializeField] GameObject[] ingrediantsPrefabsDictionary; // should be done with dictionary, but cannot be serialized and needed to be simplified for the prototype
     [SerializeField] GameObject[] addOnPrefabsDictionary; // should be done with dictionary, but cannot be serialized and needed to be simplified for the prototype
     [SerializeField] GameObject workingStation;
     [SerializeField] ButtonMGR buttonMGR;
     Cup cupInProgress;
+    [SerializeField] MusicMGR musicMGR;
     public enum DrinkBase
     {
         CARROT,
@@ -32,11 +34,11 @@ public class GameMGR : MonoBehaviour
     }
 
 
-
+    [Serializable]
     public class Drink
     {
-        public DrinkBase drinkBase;
-        public AddOn addOn;
+        public DrinkBase drinkBase = DrinkBase.NONE;
+        public AddOn addOn = AddOn.NONE;
         public bool isEqual(Drink required)
         {
             if (required.drinkBase == this.drinkBase)
@@ -84,18 +86,38 @@ public class GameMGR : MonoBehaviour
 
     public void serveDrink()
     {
-        Drink required = requests[0];
-        if(drinkInProgress.isEqual(required))
+
+        if(shakesServed < requests.Count)
         {
-            print("success");
-        }
-        else
-        {
-            print("fail");
+            Drink required = requests[shakesServed];
+            shakesServed++;
+            if (drinkInProgress.isEqual(required))
+            {
+                print("success");
+                musicMGR.Play_Sound(MusicMGR.SoundTypes.SUCCESS);
+                Destroy(cupInProgress.gameObject);
+            }
+            else
+            {
+                print("fail");
+                musicMGR.Play_Sound(MusicMGR.SoundTypes.FAIL);
+                Destroy(cupInProgress.gameObject);
+            }
+            buttonMGR.showIngrediants();
+            isCupInProgress = false;
+            if (shakesServed == requests.Count)
+            {
+                EndLevel();
+            }
         }
     }
 
     public void StartLevel()
+    {
+
+    }
+
+    public void EndLevel()
     {
 
     }
