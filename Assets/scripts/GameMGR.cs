@@ -18,6 +18,8 @@ public class GameMGR : MonoBehaviour
     [SerializeField] ButtonMGR buttonMGR;
     Cup cupInProgress;
     [SerializeField] MusicMGR musicMGR;
+    [SerializeField] GameObject requestPosition;
+    Cup cupInDisplay = null;
     public enum DrinkBase
     {
         CARROT,
@@ -109,17 +111,37 @@ public class GameMGR : MonoBehaviour
             {
                 EndLevel();
             }
+            else
+            {
+                ShowRequest(requests[shakesServed]);
+            }
         }
+    }
+    private void Start()
+    {
+        StartLevel();
     }
 
     public void StartLevel()
     {
-
+        ShowRequest(requests[0]);
     }
 
     public void EndLevel()
     {
 
+    }
+
+    void ShowRequest(Drink request)
+    {
+        if(cupInDisplay != null)
+        {
+            Destroy(cupInDisplay.gameObject);
+        }
+        cupInDisplay = Instantiate(NewDrinkPrefab, requestPosition.transform).GetComponent<Cup>();
+        cupInDisplay.init(this);
+        cupInDisplay.fillCupWithBase(request.drinkBase);
+        cupInDisplay.putAddOn(addOnPrefabsDictionary[(int)request.addOn],request.addOn);
     }
     
 }

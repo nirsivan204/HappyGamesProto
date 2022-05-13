@@ -58,7 +58,10 @@ public class Cup : MonoBehaviour, IClikable
 
     internal void putAddOn(GameObject addOnPrefab, GameMGR.AddOn addOn)
     {
-        Instantiate(addOnPrefab,transform);
-        this.drink.addOn = addOn;
+        if(addOn != GameMGR.AddOn.NONE)
+        {
+            Instantiate(addOnPrefab, transform);
+            this.drink.addOn = addOn;
+        }
     }
 }

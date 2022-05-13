@@ -1184,6 +1184,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1359823623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1359823624}
+  m_Layer: 0
+  m_Name: requestPlace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1359823624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359823623}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.316, y: 0.582, z: -0.018}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1437280233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,7 +1481,7 @@ MonoBehaviour:
   mixer: {fileID: 260256268}
   requests:
   - drinkBase: 0
-    addOn: 0
+    addOn: 2
   ingrediantsPrefabsDictionary:
   - {fileID: 1341161170121390, guid: 9924d36cc89e7b640a64243b24fe19fe, type: 3}
   - {fileID: 0}
@@ -1460,6 +1491,7 @@ MonoBehaviour:
   workingStation: {fileID: 1228722453}
   buttonMGR: {fileID: 1193829004}
   musicMGR: {fileID: 785858160}
+  requestPosition: {fileID: 1359823623}
 --- !u!4 &1732947402
 Transform:
   m_ObjectHideFlags: 0
