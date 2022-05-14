@@ -1162,9 +1162,9 @@ MonoBehaviour:
   insideMixerSpot: {fileID: 671545005}
   liquid: {fileID: 489762613}
   colorsPerBase:
-  - {r: 0.9339623, g: 0.39611125, b: 0.022027409, a: 0}
-  - {r: 0.9339623, g: 0.8829852, b: 0, a: 0}
-  - {r: 0.5566038, g: 0.013127446, b: 0.013127446, a: 0}
+  - {r: 0.9339623, g: 0.39611125, b: 0.022027409, a: 0.80784315}
+  - {r: 0.9339623, g: 0.8829852, b: 0, a: 0.59607846}
+  - {r: 0.5566038, g: 0.013127446, b: 0.013127446, a: 0.74509805}
 --- !u!1 &387924453
 GameObject:
   m_ObjectHideFlags: 3
@@ -1590,11 +1590,11 @@ MonoBehaviour:
   Color: {r: 0.34, g: 0.85, b: 0.92, a: 1}
   ReflectionColor: {r: 1, g: 1, b: 1, a: 1}
   SmoothnessOld: 0.96
-  Roughness: 0.04000002
-  Metalness: 0.3
-  Opacity: 3
+  Roughness: 0
+  Metalness: 0.15
+  Opacity: 32.4
   Shadowing: 0
-  RefractionDistortion: 0.15
+  RefractionDistortion: 0.021
   ParticleScale: 1
   FoamIntensity: 0.8
   FoamAmount: 1

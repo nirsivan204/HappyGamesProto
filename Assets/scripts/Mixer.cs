@@ -87,13 +87,13 @@ public class Mixer : MonoBehaviour, IClikable
             MixStarted = true;
             mixTotalTime = 0;
             Destroy(ingInsideMixer);
-            changeColorOfLiquid(baseInMixer);
+            changeColorOfLiquid();
         }
     }
 
-    private void changeColorOfLiquid(GameMGR.DrinkBase baseInMixer)
+    private void changeColorOfLiquid()
     {
-        throw new NotImplementedException();
+        liquid.materialParameters.Color = colorsPerBase[(int)baseInMixer];
     }
 
     private void stopMixing()
