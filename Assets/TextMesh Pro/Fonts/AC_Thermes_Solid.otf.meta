@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 620c5df3ce911044d94212e9be62f35c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - AC Thermes
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 80212f484e020424d8d8e95c03222a69, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
