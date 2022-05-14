@@ -21,11 +21,13 @@ public class GameMGR : MonoBehaviour
     [SerializeField] GameObject requestPosition;
     [SerializeField] CamerasMGR cameraMGR;
     Cup cupInDisplay = null;
+    private int[] currentIngredients;
+
     public enum DrinkBase
     {
         CARROT,
-        PEANUT,
-        TOMATO,
+        BANANAS,
+        MEAT,
         NONE
     }
 
@@ -66,6 +68,7 @@ public class GameMGR : MonoBehaviour
             cupInProgress.init(this);
             drinkInProgress = cupInProgress.Drink;
             mixer.PutCupInMixer(cupInProgress);
+            cameraMGR.ChangeState(CamerasMGR.CamerasStates.MIXER);
         }
     }
 
@@ -74,11 +77,14 @@ public class GameMGR : MonoBehaviour
         buttonMGR.showAddOns();
         cupInProgress.transform.position = workingStation.transform.position;
         mixer.takeCupOut();
+        cameraMGR.ChangeState(CamerasMGR.CamerasStates.ADDON_STATION);
     }
 
-    public void putInsideMixer(DrinkBase drinkBase)
+    public void putInsideMixer(int i)
     {
-        mixer.putInsideMixer(ingrediantsPrefabsDictionary[(int)drinkBase], drinkBase);
+        DrinkBase drinkBase = (DrinkBase) currentIngredients[i];
+        mixer.putInsideMixer(ingrediantsPrefabsDictionary[currentIngredients[i]], drinkBase);
+        cameraMGR.ChangeState(CamerasMGR.CamerasStates.CUPS);
     }
 
 
@@ -118,15 +124,14 @@ public class GameMGR : MonoBehaviour
             }
         }
     }
-    private void Start()
-    {
-        StartLevel();
-    }
 
     public void StartLevel()
     {
+        print("start");
         ShowRequest(requests[0]);
-        cameraMGR.ChangeState(CamerasMGR.CamerasStates.CUTTINGBOARD);
+        cameraMGR.ChangeState(CamerasMGR.CamerasStates.INGREDIANTS);
+        currentIngredients = new int[3] { (int)DrinkBase.CARROT, (int)DrinkBase.MEAT, (int)DrinkBase.BANANAS };
+        buttonMGR.UpdateButtons(ButtonMGR.SpriteGroups.INGREDIANTS, currentIngredients);
     }
 
     public void EndLevel()
