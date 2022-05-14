@@ -26,6 +26,7 @@ public class Mixer : MonoBehaviour, IClikable
         if (!isMixing)
         {
             ingInsideMixer = Instantiate(ingrediant, insideMixerSpot.transform);
+            ingInsideMixer.transform.localPosition = Vector3.zero;
             baseInMixer = type;
         }
     }

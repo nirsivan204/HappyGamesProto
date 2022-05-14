@@ -8,9 +8,12 @@ public class CamerasMGR : MonoBehaviour
     [SerializeField] Animator camerasAnimator;
     public enum CamerasStates
     {
+        OVERVIEW,
         INGREDIANTS,
-        CUTTINGBOARD,
+        CUPS,
         MIXER,
+        ADDON_STATION,
+        CUTTINGBOARD,
     }
     public void ChangeState(CamerasStates state)
     {
