@@ -6,7 +6,7 @@ using UnityEngine;
 public class Cup : MonoBehaviour, IClikable
 {
     // Start is called before the first frame update
-    [SerializeField] GameObject baseLiquid;
+    //[SerializeField] GameObject baseLiquid;
     public enum CupState
     {
         NONE,
@@ -19,14 +19,16 @@ public class Cup : MonoBehaviour, IClikable
     private GameMGR.Drink drink;
     private CupState state = CupState.NONE;
     private GameMGR GM;
+    private CupsDispanser.CupType cupType;
 
     public GameMGR.Drink Drink { get => drink; set => drink = value; }
     public CupState State { get => state; set => state = value; }
 
-    public void init(GameMGR gameMGR)
+    public void init(GameMGR gameMGR, int cupType)
     {
         drink = new GameMGR.Drink();
-        GM = gameMGR; 
+        GM = gameMGR;
+        this.cupType = (CupsDispanser.CupType)cupType;
     }
 
     public void OnClick()
@@ -54,7 +56,7 @@ public class Cup : MonoBehaviour, IClikable
     public void fillCupWithBase(GameMGR.DrinkBase drinkBase)
     {
         this.drink.drinkBase = drinkBase;
-        baseLiquid.SetActive(true);
+        //baseLiquid.SetActive(true);
         state = CupState.HAS_BASE;
     }
 

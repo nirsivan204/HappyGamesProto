@@ -8,7 +8,7 @@ public class GameMGR : MonoBehaviour
 {
     bool isCupInProgress = false;
     private Drink drinkInProgress;
-    [SerializeField] GameObject NewDrinkPrefab;
+    [SerializeField] GameObject[] CupsPrefabDisctionary;
     [SerializeField] Mixer mixer;
     [SerializeField] List<Drink> requests;
     int shakesServed = 0;
@@ -22,6 +22,7 @@ public class GameMGR : MonoBehaviour
     [SerializeField] CamerasMGR cameraMGR;
     Cup cupInDisplay = null;
     private int[] currentIngredients;
+    private int[] currentAddons;
 
     public enum DrinkBase
     {
@@ -44,13 +45,17 @@ public class GameMGR : MonoBehaviour
     {
         public DrinkBase drinkBase = DrinkBase.NONE;
         public AddOn addOn = AddOn.NONE;
+        public CupsDispanser.CupType cupType;
         public bool isEqual(Drink required)
         {
-            if (required.drinkBase == this.drinkBase)
+            if(required.cupType == this.cupType)
             {
-                if(required.addOn == this.addOn)
+                if (required.drinkBase == this.drinkBase)
                 {
-                    return true;
+                    if (required.addOn == this.addOn)
+                    {
+                        return true;
+                    }
                 }
             }
             return false;
@@ -58,14 +63,14 @@ public class GameMGR : MonoBehaviour
 
     }
 
-    public void getNewCup()
+    public void getNewCup(int cupType)
     {
         if (!isCupInProgress)
         {
             isCupInProgress = true;
 
-            cupInProgress = Instantiate(NewDrinkPrefab, mixer.CupPlace.transform).GetComponent<Cup>();
-            cupInProgress.init(this);
+            cupInProgress = Instantiate(CupsPrefabDisctionary[cupType], mixer.CupPlace.transform).GetComponent<Cup>();
+            cupInProgress.init(this, cupType);
             drinkInProgress = cupInProgress.Drink;
             mixer.PutCupInMixer(cupInProgress);
             cameraMGR.ChangeState(CamerasMGR.CamerasStates.MIXER);
@@ -74,7 +79,9 @@ public class GameMGR : MonoBehaviour
 
     internal void PutCupInWorkStation()
     {
-        buttonMGR.showAddOns();
+        currentAddons = new int[3] { (int)AddOn.ICE_CUBES, (int)AddOn.ICE_CUBES, (int)AddOn.ICE_CUBES };
+        buttonMGR.UpdateButtons(ButtonMGR.SpriteGroups.ADDONS, currentAddons);
+        buttonMGR.showManu(true);
         cupInProgress.transform.position = workingStation.transform.position;
         mixer.takeCupOut();
         cameraMGR.ChangeState(CamerasMGR.CamerasStates.ADDON_STATION);
@@ -85,6 +92,7 @@ public class GameMGR : MonoBehaviour
         DrinkBase drinkBase = (DrinkBase) currentIngredients[i];
         mixer.putInsideMixer(ingrediantsPrefabsDictionary[currentIngredients[i]], drinkBase);
         cameraMGR.ChangeState(CamerasMGR.CamerasStates.CUPS);
+        buttonMGR.showManu(false);
     }
 
 
@@ -112,7 +120,7 @@ public class GameMGR : MonoBehaviour
                 musicMGR.Play_Sound(MusicMGR.SoundTypes.FAIL);
                 Destroy(cupInProgress.gameObject);
             }
-            buttonMGR.showIngrediants();
+            buttonMGR.showManu(true);
             isCupInProgress = false;
             if (shakesServed == requests.Count)
             {
@@ -120,7 +128,7 @@ public class GameMGR : MonoBehaviour
             }
             else
             {
-                ShowRequest(requests[shakesServed]);
+                //ShowRequest(requests[shakesServed]);
             }
         }
     }
@@ -128,7 +136,7 @@ public class GameMGR : MonoBehaviour
     public void StartLevel()
     {
         print("start");
-        ShowRequest(requests[0]);
+        //ShowRequest(requests[0]);
         cameraMGR.ChangeState(CamerasMGR.CamerasStates.INGREDIANTS);
         currentIngredients = new int[3] { (int)DrinkBase.CARROT, (int)DrinkBase.MEAT, (int)DrinkBase.BANANAS };
         buttonMGR.UpdateButtons(ButtonMGR.SpriteGroups.INGREDIANTS, currentIngredients);
@@ -145,8 +153,8 @@ public class GameMGR : MonoBehaviour
         {
             Destroy(cupInDisplay.gameObject);
         }
-        cupInDisplay = Instantiate(NewDrinkPrefab, requestPosition.transform).GetComponent<Cup>();
-        cupInDisplay.init(this);
+        cupInDisplay = Instantiate(CupsPrefabDisctionary[(int)request.cupType], requestPosition.transform).GetComponent<Cup>();
+        cupInDisplay.init(this,(int)request.cupType);
         cupInDisplay.fillCupWithBase(request.drinkBase);
         cupInDisplay.putAddOn(addOnPrefabsDictionary[(int)request.addOn],request.addOn);
         cupInDisplay.State = Cup.CupState.ON_DISPLAY;

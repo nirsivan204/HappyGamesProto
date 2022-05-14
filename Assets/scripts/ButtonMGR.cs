@@ -29,30 +29,26 @@ public class ButtonMGR : MonoBehaviour
         GM.putAddOnInCup((GameMGR.AddOn)id);
     }
 
-    public void showAddOns()
+    public void showManu(bool show)
     {
-        ingrediantsManu.SetActive(false);
-    }
-
-    public void showIngrediants()
-    {
-        tapToStartScene.SetActive(false);
-        ingrediantsManu.SetActive(true);
+        ingrediantsManu.SetActive(show);
     }
 
     public void TapToStartClicked()
     {
         GM.StartLevel();
-        showIngrediants();
+        showManu(true);
+        tapToStartScene.SetActive(false);
+
     }
 
-    public void UpdateButtons(SpriteGroups group, int[] meshes)
+    public void UpdateButtons(SpriteGroups group, int[] spritesIdx)
     {
         if(group == SpriteGroups.INGREDIANTS)
         {
             for (int i = 0; i < 3; i++) 
             {
-                buttonsImgs[i].sprite = ingrediantsSpriteDictionary[meshes[i]];
+                buttonsImgs[i].sprite = ingrediantsSpriteDictionary[spritesIdx[i]];
             }
         }
         else
@@ -61,7 +57,7 @@ public class ButtonMGR : MonoBehaviour
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    buttonsImgs[i].sprite = ingrediantsSpriteDictionary[meshes[i]];
+                    buttonsImgs[i].sprite = addOnSpriteDictionary[spritesIdx[i]];
                 }
             }
         }

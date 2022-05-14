@@ -6,10 +6,16 @@ public class CupsDispanser : MonoBehaviour, IClikable
 {
     // Start is called before the first frame update
     [SerializeField] GameMGR GM;
+    [SerializeField] CupType cupType;
+
+    public enum CupType
+    {
+        A,B,C
+    }
 
     public void OnClick()
     {
-        GM.getNewCup();
+        GM.getNewCup((int)cupType);
     }
 
 }
