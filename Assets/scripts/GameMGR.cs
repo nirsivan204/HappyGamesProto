@@ -19,6 +19,7 @@ public class GameMGR : MonoBehaviour
     Cup cupInProgress;
     [SerializeField] MusicMGR musicMGR;
     [SerializeField] GameObject requestPosition;
+    [SerializeField] CamerasMGR cameraMGR;
     Cup cupInDisplay = null;
     public enum DrinkBase
     {
@@ -125,6 +126,7 @@ public class GameMGR : MonoBehaviour
     public void StartLevel()
     {
         ShowRequest(requests[0]);
+        cameraMGR.ChangeState(CamerasMGR.CamerasStates.CUTTINGBOARD);
     }
 
     public void EndLevel()
