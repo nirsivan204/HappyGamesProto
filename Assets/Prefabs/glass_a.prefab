@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8716382854574280779}
-  - component: {fileID: 7245987779433177129}
   - component: {fileID: 2416527987481257009}
   - component: {fileID: 8359989885164572643}
   m_Layer: 0
@@ -34,19 +33,6 @@ Transform:
   m_Father: {fileID: 2939619706819044956}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &7245987779433177129
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159622199512238271}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &2416527987481257009
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -107,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2939619706819044956}
   - component: {fileID: 2957456160577914270}
+  - component: {fileID: 3307067884422665978}
   m_Layer: 0
   m_Name: glass_a
   m_TagString: Untagged
@@ -142,3 +129,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f0bfb13a9a0274fa595ce44e562d8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &3307067884422665978
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2558167875200204006}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.15928432, y: 0.16448955, z: 0.15929615}
+  m_Center: {x: 0.017320499, y: -9.9354106e-17, z: 0.06949144}

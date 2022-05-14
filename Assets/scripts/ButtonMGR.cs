@@ -12,6 +12,7 @@ public class ButtonMGR : MonoBehaviour
     [SerializeField] Sprite[] ingrediantsSpriteDictionary; // should be done with dictionary, but cannot be serialized and needed to be simplified for the prototype
     [SerializeField] Sprite[] addOnSpriteDictionary; // should be done with dictionary, but cannot be serialized and needed to be simplified for the prototype
     [SerializeField] Image[] buttonsImgs;
+    private SpriteGroups currentGroup;
     public enum SpriteGroups
     {
         INGREDIANTS,
@@ -19,12 +20,28 @@ public class ButtonMGR : MonoBehaviour
     }
 
 
-    public void ingreadiantButtonPressed(int id)
+    public void ButtonPressed(int id)
+    {
+        if(currentGroup == SpriteGroups.INGREDIANTS)
+        {
+            ingreadiantButtonPressed(id);
+        }
+        else
+        {
+            if (currentGroup == SpriteGroups.ADDONS)
+            {
+                addOnButtonPressed(id);
+            }
+        }
+    }
+
+
+    private void ingreadiantButtonPressed(int id)
     {
         GM.putInsideMixer(id);
     }
 
-    public void addOnButtonPressed(int id)
+    private void addOnButtonPressed(int id)
     {
         GM.putAddOnInCup((GameMGR.AddOn)id);
     }
@@ -50,6 +67,7 @@ public class ButtonMGR : MonoBehaviour
             {
                 buttonsImgs[i].sprite = ingrediantsSpriteDictionary[spritesIdx[i]];
             }
+            currentGroup = SpriteGroups.INGREDIANTS;
         }
         else
         {
@@ -59,6 +77,7 @@ public class ButtonMGR : MonoBehaviour
                 {
                     buttonsImgs[i].sprite = addOnSpriteDictionary[spritesIdx[i]];
                 }
+                currentGroup = SpriteGroups.ADDONS;
             }
         }
     }

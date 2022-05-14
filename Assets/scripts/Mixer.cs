@@ -1,3 +1,4 @@
+using com.zibra.liquid.Solver;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,8 +19,14 @@ public class Mixer : MonoBehaviour, IClikable
     private Cup cupInMixer;
     [SerializeField] GameObject insideMixerSpot;
     GameObject ingInsideMixer = null;
-
+    [SerializeField] ZibraLiquid liquid;
+    float restingLiquidDensity = 8;
+    float spiningLiquidDensity = 2.41f;
+    private bool canBeUsed = false;
     public GameObject CupPlace { get => cupPlace; set => cupPlace = value; }
+    public bool CanBeUsed { get => canBeUsed; set => canBeUsed = value; }
+
+    [SerializeField] Color[] colorsPerBase;
 
     public void putInsideMixer(GameObject ingrediant, GameMGR.DrinkBase type )
     {
@@ -40,23 +47,25 @@ public class Mixer : MonoBehaviour, IClikable
 
     public void OnClick()
     {
-        if (isMixing)
+        if (canBeUsed)
         {
-            stopMixing();
-        }
-        else
-        {
-            if (isMixReady && isCupInMixer)
+            if (isMixing)
             {
-                cupInMixer.fillCupWithBase(baseInMixer);
-                MixStarted = false;
-                baseInMixer = GameMGR.DrinkBase.NONE;
-                isMixReady = false;
-                Destroy(ingInsideMixer);
+                stopMixing();
             }
             else
             {
-                startMixing();
+                if (isMixReady && isCupInMixer)
+                {
+                    cupInMixer.fillCupWithBase(baseInMixer);
+                    MixStarted = false;
+                    baseInMixer = GameMGR.DrinkBase.NONE;
+                    isMixReady = false;
+                }
+                else
+                {
+                    startMixing();
+                }
             }
         }
     }
@@ -71,18 +80,27 @@ public class Mixer : MonoBehaviour, IClikable
     {
         MM.Play_Sound(MusicMGR.SoundTypes.mixerRun, true);
         isMixing = true;
+        liquid.gameObject.SetActive(true);
+        liquid.solverParameters.ParticleDensity = spiningLiquidDensity;
         if (!MixStarted && baseInMixer != GameMGR.DrinkBase.NONE)
         {
             MixStarted = true;
             mixTotalTime = 0;
+            Destroy(ingInsideMixer);
+            changeColorOfLiquid(baseInMixer);
         }
+    }
+
+    private void changeColorOfLiquid(GameMGR.DrinkBase baseInMixer)
+    {
+        throw new NotImplementedException();
     }
 
     private void stopMixing()
     {
         MM.Play_Sound(MusicMGR.SoundTypes.mixerEnd);
         isMixing = false;
-
+        liquid.solverParameters.ParticleDensity = restingLiquidDensity;
     }
 
 

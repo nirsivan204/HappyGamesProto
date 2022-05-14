@@ -73,6 +73,7 @@ public class GameMGR : MonoBehaviour
             cupInProgress.init(this, cupType);
             drinkInProgress = cupInProgress.Drink;
             mixer.PutCupInMixer(cupInProgress);
+            mixer.CanBeUsed = true;
             cameraMGR.ChangeState(CamerasMGR.CamerasStates.MIXER);
         }
     }
@@ -84,6 +85,7 @@ public class GameMGR : MonoBehaviour
         buttonMGR.showManu(true);
         cupInProgress.transform.position = workingStation.transform.position;
         mixer.takeCupOut();
+        mixer.CanBeUsed = false;
         cameraMGR.ChangeState(CamerasMGR.CamerasStates.ADDON_STATION);
     }
 
