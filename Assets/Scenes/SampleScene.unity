@@ -1084,9 +1084,9 @@ MonoBehaviour:
   MM: {fileID: 785858160}
   cupPlace: {fileID: 2026503449}
   timeToMix: 3
+  LU: {fileID: 0}
   insideMixerSpot: {fileID: 671545005}
   liquid: {fileID: 0}
-  colorsPerBase: []
 --- !u!1 &292460164
 GameObject:
   m_ObjectHideFlags: 0
@@ -4189,6 +4189,7 @@ MonoBehaviour:
   musicMGR: {fileID: 785858160}
   requestPosition: {fileID: 1359823623}
   cameraMGR: {fileID: 709657316}
+  LU: {fileID: 0}
 --- !u!4 &1732947402
 Transform:
   m_ObjectHideFlags: 0
