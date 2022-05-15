@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="63208781-0fba-4c49-b112-b13e4d1923c4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/UI/ac_thermes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/ackbar.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/adorable_2.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HappyGamesProto/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HappyGamesProto/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/AC_Thermes_Solid SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/AC_Thermes_Solid SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/Ackbar SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/Ackbar SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/animations/ui/TapToStart.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/animations/ui/TapToStart.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/animations/ui/TapToStart.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/animations/ui/TapToStart.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/material/bg.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/material/bg.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/ButtonMGR.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/ButtonMGR.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="299e37RxvXwHFf6Dqp3aAMBYbI0" />
   <component name="ProjectViewState">
@@ -23,7 +35,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -50,15 +67,21 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="63208781-0fba-4c49-b112-b13e4d1923c4" name="Changes" comment="" />
       <created>1652529529065</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652529529065</updated>
       <workItem from="1652529539022" duration="1000" />
+      <workItem from="1652600635447" duration="1271000" />
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
