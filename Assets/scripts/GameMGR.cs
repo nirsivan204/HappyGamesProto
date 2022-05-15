@@ -23,6 +23,8 @@ public class GameMGR : MonoBehaviour
     Cup cupInDisplay = null;
     private int[] currentIngredients;
     private int[] currentAddons;
+    [SerializeField] LiquidUtility LU;
+
 
     public enum DrinkBase
     {
@@ -70,7 +72,7 @@ public class GameMGR : MonoBehaviour
             isCupInProgress = true;
 
             cupInProgress = Instantiate(CupsPrefabDisctionary[cupType], mixer.CupPlace.transform).GetComponent<Cup>();
-            cupInProgress.init(this, cupType);
+            cupInProgress.init(this, LU, cupType);
             drinkInProgress = cupInProgress.Drink;
             mixer.PutCupInMixer(cupInProgress);
             mixer.CanBeUsed = true;
@@ -156,7 +158,7 @@ public class GameMGR : MonoBehaviour
             Destroy(cupInDisplay.gameObject);
         }
         cupInDisplay = Instantiate(CupsPrefabDisctionary[(int)request.cupType], requestPosition.transform).GetComponent<Cup>();
-        cupInDisplay.init(this,(int)request.cupType);
+        cupInDisplay.init(this, LU, (int)request.cupType);
         cupInDisplay.fillCupWithBase(request.drinkBase);
         cupInDisplay.putAddOn(addOnPrefabsDictionary[(int)request.addOn],request.addOn);
         cupInDisplay.State = Cup.CupState.ON_DISPLAY;

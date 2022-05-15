@@ -1,3 +1,4 @@
+using com.zibra.liquid.Solver;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,7 +7,8 @@ using UnityEngine;
 public class Cup : MonoBehaviour, IClikable
 {
     // Start is called before the first frame update
-    //[SerializeField] GameObject baseLiquid;
+    [SerializeField] ZibraLiquid liquid;
+    LiquidUtility LU;
     public enum CupState
     {
         NONE,
@@ -24,10 +26,11 @@ public class Cup : MonoBehaviour, IClikable
     public GameMGR.Drink Drink { get => drink; set => drink = value; }
     public CupState State { get => state; set => state = value; }
 
-    public void init(GameMGR gameMGR, int cupType)
+    public void init(GameMGR gameMGR, LiquidUtility LU, int cupType)
     {
         drink = new GameMGR.Drink();
         GM = gameMGR;
+        this.LU = LU;
         this.cupType = (CupsDispanser.CupType)cupType;
     }
 
@@ -56,8 +59,9 @@ public class Cup : MonoBehaviour, IClikable
     public void fillCupWithBase(GameMGR.DrinkBase drinkBase)
     {
         this.drink.drinkBase = drinkBase;
-        //baseLiquid.SetActive(true);
         state = CupState.HAS_BASE;
+        liquid.gameObject.SetActive(true);
+        LU.changeColorOfLiquid(liquid,drinkBase);
     }
 
     internal void putAddOn(GameObject addOnPrefab, GameMGR.AddOn addOn)

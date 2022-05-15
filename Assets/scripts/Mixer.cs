@@ -11,6 +11,7 @@ public class Mixer : MonoBehaviour, IClikable
     [SerializeField] MusicMGR MM;
     [SerializeField] GameObject cupPlace;
     [SerializeField] float timeToMix = 3;
+    [SerializeField] LiquidUtility LU;
     private float mixTotalTime = 0;
     private GameMGR.DrinkBase baseInMixer = GameMGR.DrinkBase.NONE;
     private bool isMixReady = false;
@@ -26,7 +27,6 @@ public class Mixer : MonoBehaviour, IClikable
     public GameObject CupPlace { get => cupPlace; set => cupPlace = value; }
     public bool CanBeUsed { get => canBeUsed; set => canBeUsed = value; }
 
-    [SerializeField] Color[] colorsPerBase;
 
     public void putInsideMixer(GameObject ingrediant, GameMGR.DrinkBase type )
     {
@@ -61,6 +61,8 @@ public class Mixer : MonoBehaviour, IClikable
                     MixStarted = false;
                     baseInMixer = GameMGR.DrinkBase.NONE;
                     isMixReady = false;
+                    LU.changeDensityOfLiquid(liquid, restingLiquidDensity);
+                    Invoke("emptyMixer", 0.5f);
                 }
                 else
                 {
@@ -81,29 +83,28 @@ public class Mixer : MonoBehaviour, IClikable
         MM.Play_Sound(MusicMGR.SoundTypes.mixerRun, true);
         isMixing = true;
         liquid.gameObject.SetActive(true);
-        liquid.solverParameters.ParticleDensity = spiningLiquidDensity;
+        LU.changeDensityOfLiquid(liquid, spiningLiquidDensity);
         if (!MixStarted && baseInMixer != GameMGR.DrinkBase.NONE)
         {
             MixStarted = true;
             mixTotalTime = 0;
             Destroy(ingInsideMixer);
-            changeColorOfLiquid();
+            LU.changeColorOfLiquid(liquid, baseInMixer);
         }
-    }
-
-    private void changeColorOfLiquid()
-    {
-        liquid.materialParameters.Color = colorsPerBase[(int)baseInMixer];
     }
 
     private void stopMixing()
     {
         MM.Play_Sound(MusicMGR.SoundTypes.mixerEnd);
         isMixing = false;
-        liquid.solverParameters.ParticleDensity = restingLiquidDensity;
+        LU.changeDensityOfLiquid(liquid,restingLiquidDensity);
     }
 
-
+    private void emptyMixer()
+    {
+        liquid.gameObject.SetActive(false);
+        LU.changeDensityOfLiquid(liquid, spiningLiquidDensity);
+    }
     // Update is called once per frame
     void Update()
     {
