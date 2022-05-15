@@ -26,7 +26,7 @@ public class Mixer : MonoBehaviour, IClikable
     private bool canBeUsed = false;
     public GameObject CupPlace { get => cupPlace; set => cupPlace = value; }
     public bool CanBeUsed { get => canBeUsed; set => canBeUsed = value; }
-
+    [SerializeField] ButtonMGR buttonMGR;
 
     public void putInsideMixer(GameObject ingrediant, GameMGR.DrinkBase type )
     {
@@ -80,9 +80,10 @@ public class Mixer : MonoBehaviour, IClikable
 
     private void startMixing()
     {
-        MM.Play_Sound(MusicMGR.SoundTypes.mixerRun, true);
+        //MM.Play_Sound(MusicMGR.SoundTypes.mixerRun, true);
         isMixing = true;
-        liquid.gameObject.SetActive(true);
+        //liquid.gameObject.SetActive(true);
+        buttonMGR.playVideo();
         LU.changeDensityOfLiquid(liquid, spiningLiquidDensity);
         if (!MixStarted && baseInMixer != GameMGR.DrinkBase.NONE)
         {

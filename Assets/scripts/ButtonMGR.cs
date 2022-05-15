@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class ButtonMGR : MonoBehaviour
 {
@@ -15,7 +16,8 @@ public class ButtonMGR : MonoBehaviour
     [SerializeField] GameObject order;
     private SpriteGroups currentGroup;
     [SerializeField] GameObject playScene;
-
+    [SerializeField] RawImage Image;
+    [SerializeField] VideoPlayer videoPlayer;
     public enum SpriteGroups
     {
         INGREDIANTS,
@@ -75,6 +77,18 @@ public class ButtonMGR : MonoBehaviour
         GM.startMakingShake();
         showManu(true);
 
+    }
+
+    public void playVideo()
+    {
+        Image.gameObject.SetActive(true);
+        videoPlayer.Play();
+        videoPlayer.loopPointReached += EndReached;
+    }
+
+    void EndReached(VideoPlayer vp)
+    {
+        Image.gameObject.SetActive(false);
     }
 
     public void UpdateButtons(SpriteGroups group, int[] spritesIdx)
