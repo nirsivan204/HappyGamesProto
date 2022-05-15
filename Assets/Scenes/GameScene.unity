@@ -817,7 +817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9daaaa33a8e0a754086fc49e694bf3cb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.16
+      value: 24.64
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9daaaa33a8e0a754086fc49e694bf3cb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8123,7 +8123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 964ea9eaf41eb4740bb50ec7565fcb8b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.85
+      value: 23.68
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 964ea9eaf41eb4740bb50ec7565fcb8b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9709,7 +9709,7 @@ MonoBehaviour:
   requestPosition: {fileID: 1359823623}
   cameraMGR: {fileID: 1268764581}
   LU: {fileID: 2050462214}
-  horse: {fileID: 0}
+  horse: {fileID: 1044456809}
 --- !u!4 &1732947402
 Transform:
   m_ObjectHideFlags: 0
@@ -11511,7 +11511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8468d4e9468bae143bbe1f2950ba429a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 22.73
+      value: 22.94
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8468d4e9468bae143bbe1f2950ba429a, type: 3}
       propertyPath: m_LocalPosition.y
