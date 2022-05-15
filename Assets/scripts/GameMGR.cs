@@ -146,11 +146,12 @@ public class GameMGR : MonoBehaviour
         }
         else
         {
-            ShowRequest();
-            currentIngredients = new int[3] { (int)DrinkBase.CARROT, (int)DrinkBase.MEAT, (int)DrinkBase.BANANAS };
+            IEnumerator newCustomerCoroutine = newCustomer();
+            StartCoroutine(newCustomerCoroutine);
+/*            currentIngredients = new int[3] { (int)DrinkBase.CARROT, (int)DrinkBase.MEAT, (int)DrinkBase.BANANAS };
             buttonMGR.UpdateButtons(ButtonMGR.SpriteGroups.INGREDIANTS, currentIngredients);
             buttonMGR.showManu(true);
-            cameraMGR.ChangeState(CamerasMGR.CamerasStates.INGREDIANTS);
+            cameraMGR.ChangeState(CamerasMGR.CamerasStates.INGREDIANTS);*/
         }
     }
 
