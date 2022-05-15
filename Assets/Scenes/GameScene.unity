@@ -9678,6 +9678,9 @@ MonoBehaviour:
   - drinkBase: 1
     addOn: 0
     cupType: 2
+  - drinkBase: 2
+    addOn: 1
+    cupType: 1
   ingrediantsPrefabsDictionary:
   - {fileID: 1341161170121390, guid: 9924d36cc89e7b640a64243b24fe19fe, type: 3}
   - {fileID: 8639571939262268985, guid: 0e25701154d15ea49ad5a056a5008e93, type: 3}
