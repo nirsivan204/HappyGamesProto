@@ -12,6 +12,7 @@ public class ButtonMGR : MonoBehaviour
     [SerializeField] Sprite[] ingrediantsSpriteDictionary; // should be done with dictionary, but cannot be serialized and needed to be simplified for the prototype
     [SerializeField] Sprite[] addOnSpriteDictionary; // should be done with dictionary, but cannot be serialized and needed to be simplified for the prototype
     [SerializeField] Image[] buttonsImgs;
+    [SerializeField] GameObject order;
     private SpriteGroups currentGroup;
     public enum SpriteGroups
     {
