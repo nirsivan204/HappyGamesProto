@@ -8,12 +8,20 @@ public class Customer : MonoBehaviour
     [SerializeField] float speed = 1.0f;
 
     // The target (cylinder) position.
-    [SerializeField] Transform target;
+    [SerializeField] Transform counter;
+    [SerializeField] Transform outOfScreen;
+    Transform target;
+
     bool canMove = false;
     [SerializeField] Animator animator;
     // Start is called before the first frame update
 
     // Update is called once per frame
+
+    private void Start()
+    {
+        target = counter;
+    }
 
     public void startMoving()
     {
@@ -23,12 +31,18 @@ public class Customer : MonoBehaviour
 
     public void goodServe()
     {
+        canMove = false;
         animator.SetTrigger("Success");
+        target = outOfScreen;
+        Invoke("startMoving", 4);
     }
 
     public void badServe()
     {
+        canMove = false;
         animator.SetTrigger("Failure");
+        target = outOfScreen;
+        Invoke("startMoving", 4);
     }
     void Update()
     {
