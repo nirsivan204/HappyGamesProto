@@ -14,6 +14,8 @@ public class ButtonMGR : MonoBehaviour
     [SerializeField] Image[] buttonsImgs;
     [SerializeField] GameObject order;
     private SpriteGroups currentGroup;
+    [SerializeField] GameObject playScene;
+
     public enum SpriteGroups
     {
         INGREDIANTS,
@@ -52,12 +54,25 @@ public class ButtonMGR : MonoBehaviour
         ingrediantsManu.SetActive(show);
     }
 
-   
+    public void showTapToPlay()
+    {
+        tapToStartScene.SetActive(true);
+
+    }
+
+    public void PlayClicked()
+    {
+        GM.StartLevel();
+        playScene.SetActive(false);
+
+    }
+
+
     public void TapToStartClicked()
     {
         
-        GM.StartLevel();
         tapToStartScene.SetActive(false);
+        GM.startMakingShake();
         showManu(true);
 
     }

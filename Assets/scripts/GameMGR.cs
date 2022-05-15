@@ -187,11 +187,14 @@ public class GameMGR : MonoBehaviour
         yield return new WaitForSeconds(4);
         ShowRequest();
         yield return new WaitForSeconds(2);
+        buttonMGR.showTapToPlay();
+    }
+
+    public void startMakingShake()
+    {
         cameraMGR.ChangeState(CamerasMGR.CamerasStates.INGREDIANTS);
         currentIngredients = new int[3] { (int)DrinkBase.CARROT, (int)DrinkBase.MEAT, (int)DrinkBase.BANANAS };
         buttonMGR.UpdateButtons(ButtonMGR.SpriteGroups.INGREDIANTS, currentIngredients);
-
-
     }
 
 }
