@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4462759, g: 0.49565536, b: 0.5730884, a: 1}
+  m_IndirectSpecularColor: {r: 0.44887388, g: 0.49893802, b: 0.5757032, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -169,7 +169,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.56216216, y: 1}
+    m_SensorSize: {x: 0.5626741, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -862,7 +862,7 @@ PrefabInstance:
     - target: {fileID: 8931808993551408544, guid: 9daaaa33a8e0a754086fc49e694bf3cb, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a67d99429c0b7a14695eb831b8ba71d7, type: 2}
+      objectReference: {fileID: 2100000, guid: 35ab5d51d528a714682052fa5c8ea39f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9daaaa33a8e0a754086fc49e694bf3cb, type: 3}
 --- !u!1 &138886595
@@ -3120,7 +3120,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.56216216, y: 1}
+    m_SensorSize: {x: 0.5626741, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7771,7 +7771,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.56216216, y: 1}
+    m_SensorSize: {x: 0.5626741, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7909,7 +7909,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.56216216, y: 1}
+    m_SensorSize: {x: 0.5626741, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8088,7 +8088,7 @@ PrefabInstance:
     - target: {fileID: 8876308635277940223, guid: 964ea9eaf41eb4740bb50ec7565fcb8b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ac9369c926d0fcf40a38a39859d6d192, type: 2}
+      objectReference: {fileID: 2100000, guid: 35ab5d51d528a714682052fa5c8ea39f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 964ea9eaf41eb4740bb50ec7565fcb8b, type: 3}
 --- !u!1 &1508431161
@@ -8580,7 +8580,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.56216216, y: 1}
+    m_SensorSize: {x: 0.5626741, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -10529,7 +10529,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.56216216, y: 1}
+    m_SensorSize: {x: 0.5626741, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -11572,7 +11572,7 @@ PrefabInstance:
     - target: {fileID: -8410951833468404385, guid: 8468d4e9468bae143bbe1f2950ba429a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4a9303184a1a6e44c85a49d769b6260d, type: 2}
+      objectReference: {fileID: 2100000, guid: 35ab5d51d528a714682052fa5c8ea39f, type: 2}
     - target: {fileID: 919132149155446097, guid: 8468d4e9468bae143bbe1f2950ba429a, type: 3}
       propertyPath: m_Name
       value: 'ideleHorse-man '
@@ -11625,7 +11625,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.56216216, y: 1}
+    m_SensorSize: {x: 0.5626741, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
