@@ -52,11 +52,13 @@ public class ButtonMGR : MonoBehaviour
         ingrediantsManu.SetActive(show);
     }
 
+   
     public void TapToStartClicked()
     {
+        
         GM.StartLevel();
-        showManu(true);
         tapToStartScene.SetActive(false);
+        showManu(true);
 
     }
 
