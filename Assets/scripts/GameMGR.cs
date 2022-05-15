@@ -25,7 +25,7 @@ public class GameMGR : MonoBehaviour
     private int[] currentAddons;
     [SerializeField] LiquidUtility LU;
     [SerializeField] private Animator horse;
-
+    [SerializeField] Customer[] customers;
 
     public enum DrinkBase
     {
@@ -110,8 +110,9 @@ public class GameMGR : MonoBehaviour
 
     public void serveDrink()
     {
-
-        if(shakesServed < requests.Count)
+        cameraMGR.ChangeState(CamerasMGR.CamerasStates.CHARACTER);
+        isCupInProgress = false;
+        if (shakesServed < requests.Count)
         {
             Drink required = requests[shakesServed];
             shakesServed++;
@@ -130,27 +131,33 @@ public class GameMGR : MonoBehaviour
                 musicMGR.Play_Sound(MusicMGR.SoundTypes.FAIL);
                 Destroy(cupInProgress.gameObject);
             }
-            cameraMGR.ChangeState(CamerasMGR.CamerasStates.CHARACTER);
+            IEnumerator finisheCoroutine = endServe();
+            StartCoroutine(finisheCoroutine);
+        }
+    }
+
+    IEnumerator endServe()
+    {
+        Destroy(cupInDisplay.gameObject);
+        yield return new WaitForSeconds(4);
+        if (shakesServed == requests.Count)
+        {
+            EndLevel();
+        }
+        else
+        {
+            ShowRequest();
+            currentIngredients = new int[3] { (int)DrinkBase.CARROT, (int)DrinkBase.MEAT, (int)DrinkBase.BANANAS };
+            buttonMGR.UpdateButtons(ButtonMGR.SpriteGroups.INGREDIANTS, currentIngredients);
             buttonMGR.showManu(true);
-            isCupInProgress = false;
-            if (shakesServed == requests.Count)
-            {
-                EndLevel();
-            }
-            else
-            {
-                ShowRequest();
-            }
+            cameraMGR.ChangeState(CamerasMGR.CamerasStates.INGREDIANTS);
         }
     }
 
     public void StartLevel()
     {
-        print("start");
-        Invoke("ShowRequest",0.5f);
-        cameraMGR.ChangeState(CamerasMGR.CamerasStates.INGREDIANTS);
-        currentIngredients = new int[3] { (int)DrinkBase.CARROT, (int)DrinkBase.MEAT, (int)DrinkBase.BANANAS };
-        buttonMGR.UpdateButtons(ButtonMGR.SpriteGroups.INGREDIANTS, currentIngredients);
+        IEnumerator newCustomerCoroutine = newCustomer();
+        StartCoroutine(newCustomerCoroutine);
     }
 
     public void EndLevel()
@@ -170,6 +177,20 @@ public class GameMGR : MonoBehaviour
         cupInDisplay.putAddOn(addOnPrefabsDictionary[(int)request.addOn],request.addOn);
         cupInDisplay.fillCupWithBase(request.drinkBase, 20000, 5000);
         cupInDisplay.State = Cup.CupState.ON_DISPLAY;
+
+    }
+
+    IEnumerator newCustomer()
+    {
+        customers[shakesServed].startMoving();
+        cameraMGR.ChangeState(CamerasMGR.CamerasStates.CHARACTER);
+        yield return new WaitForSeconds(4);
+        ShowRequest();
+        yield return new WaitForSeconds(2);
+        cameraMGR.ChangeState(CamerasMGR.CamerasStates.INGREDIANTS);
+        currentIngredients = new int[3] { (int)DrinkBase.CARROT, (int)DrinkBase.MEAT, (int)DrinkBase.BANANAS };
+        buttonMGR.UpdateButtons(ButtonMGR.SpriteGroups.INGREDIANTS, currentIngredients);
+
 
     }
 

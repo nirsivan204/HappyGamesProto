@@ -825,7 +825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9daaaa33a8e0a754086fc49e694bf3cb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.46
+      value: -10.13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9daaaa33a8e0a754086fc49e694bf3cb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4454,6 +4454,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &723928431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 723928432}
+  m_Layer: 0
+  m_Name: CustomerPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &723928432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723928431}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 24.136, y: -0.000000007450581, z: -12.524}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &727595193
 GameObject:
   m_ObjectHideFlags: 0
@@ -5517,6 +5548,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1044456811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1044456807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83f7effea85fcfd4bafd6e9db3f935a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  target: {fileID: 723928432}
+  animator: {fileID: 1044456809}
 --- !u!1 &1045706786
 GameObject:
   m_ObjectHideFlags: 0
@@ -7697,7 +7743,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434769719}
   m_LocalRotation: {x: 0.100561544, y: 0.035808947, z: -0.0036217999, w: 0.9942796}
-  m_LocalPosition: {x: 0.49750137, y: 0.49302518, z: 1.6966915}
+  m_LocalPosition: {x: 0.22, y: 0.49302518, z: 1.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9540,6 +9586,8 @@ MonoBehaviour:
   cameraMGR: {fileID: 1268764581}
   LU: {fileID: 2050462214}
   horse: {fileID: 1044456809}
+  customers:
+  - {fileID: 1044456811}
 --- !u!4 &1732947402
 Transform:
   m_ObjectHideFlags: 0
