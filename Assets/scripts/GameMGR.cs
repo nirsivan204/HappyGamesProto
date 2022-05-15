@@ -24,6 +24,7 @@ public class GameMGR : MonoBehaviour
     private int[] currentIngredients;
     private int[] currentAddons;
     [SerializeField] LiquidUtility LU;
+    [SerializeField] private Animator horse;
 
 
     public enum DrinkBase
@@ -115,15 +116,19 @@ public class GameMGR : MonoBehaviour
             if (drinkInProgress.isEqual(required))
             {
                 print("success");
+                horse.SetTrigger("Success");
                 musicMGR.Play_Sound(MusicMGR.SoundTypes.SUCCESS);
                 Destroy(cupInProgress.gameObject);
+                
             }
             else
             {
                 print("fail");
+                horse.SetTrigger("Failure");
                 musicMGR.Play_Sound(MusicMGR.SoundTypes.FAIL);
                 Destroy(cupInProgress.gameObject);
             }
+            cameraMGR.ChangeState(CamerasMGR.CamerasStates.CHARACTER);
             buttonMGR.showManu(true);
             isCupInProgress = false;
             if (shakesServed == requests.Count)

@@ -13,6 +13,7 @@ public class CamerasMGR : MonoBehaviour
         CUPS,
         MIXER,
         ADDON_STATION,
+        CHARACTER,
         CUTTINGBOARD,
     }
     public void ChangeState(CamerasStates state)

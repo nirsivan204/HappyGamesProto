@@ -6,16 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="63208781-0fba-4c49-b112-b13e4d1923c4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.HappyGamesProto/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HappyGamesProto/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/AC_Thermes_Solid SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/AC_Thermes_Solid SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/Ackbar SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Fonts/Ackbar SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/animations/ui/TapToStart.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/animations/ui/TapToStart.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/animations/ui/TapToStart.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/animations/ui/TapToStart.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/material/bg.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/material/bg.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/scripts/ButtonMGR.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/ButtonMGR.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CamerasMGR.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CamerasMGR.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/scripts/GameMGR.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/scripts/GameMGR.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1652529529065</updated>
       <workItem from="1652529539022" duration="1000" />
-      <workItem from="1652600635447" duration="1271000" />
+      <workItem from="1652600635447" duration="3134000" />
     </task>
     <servers />
   </component>
