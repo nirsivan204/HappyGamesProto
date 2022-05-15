@@ -116,7 +116,7 @@ public class GameMGR : MonoBehaviour
             if (drinkInProgress.isEqual(required))
             {
                 print("success");
-                horse.SetTrigger("Success");
+                horse.SetBool("Success1" , true);
                 musicMGR.Play_Sound(MusicMGR.SoundTypes.SUCCESS);
                 Destroy(cupInProgress.gameObject);
                 
@@ -124,7 +124,7 @@ public class GameMGR : MonoBehaviour
             else
             {
                 print("fail");
-                horse.SetTrigger("Failure");
+                horse.SetBool("Failure1" , true);
                 musicMGR.Play_Sound(MusicMGR.SoundTypes.FAIL);
                 Destroy(cupInProgress.gameObject);
             }
