@@ -17,4 +17,15 @@ public class LiquidUtility: MonoBehaviour
     {
         liquid.solverParameters.ParticleDensity = density;
     }
+
+    public void ChangeMaxNumParticles(ZibraLiquid liquid, int amount)
+    {
+        liquid.MaxNumParticles = amount;
+    }
+
+    public void ChangeParticlesPerSecond(ZibraLiquid liquid, int amount)
+    {
+        ((com.zibra.liquid.Manipulators.ZibraLiquidEmitter)liquid.GetManipulatorList()[0]).ParticlesPerSec = amount;
+    }
+
 }

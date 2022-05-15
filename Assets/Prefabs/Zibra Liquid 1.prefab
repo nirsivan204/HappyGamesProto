@@ -123,7 +123,7 @@ MonoBehaviour:
   FluidStiffness: 0.1
   FluidStiffnessPower: 3
   ParticleDensity: 6
-  MaximumVelocity: 3
+  MaximumVelocity: 1.02
   Viscosity: 0
 --- !u!114 &4671244076573794357
 MonoBehaviour:

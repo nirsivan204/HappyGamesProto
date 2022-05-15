@@ -44,7 +44,7 @@ public class ButtonMGR : MonoBehaviour
 
     private void addOnButtonPressed(int id)
     {
-        GM.putAddOnInCup((GameMGR.AddOn)id);
+        GM.putAddOnInCup(id);
     }
 
     public void showManu(bool show)

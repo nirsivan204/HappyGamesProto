@@ -8,6 +8,7 @@ public class Cup : MonoBehaviour, IClikable
 {
     // Start is called before the first frame update
     [SerializeField] ZibraLiquid liquid;
+    [SerializeField] GameObject addonPos;
     LiquidUtility LU;
     public enum CupState
     {
@@ -52,23 +53,26 @@ public class Cup : MonoBehaviour, IClikable
 
     private void GetCupOut()
     {
+        //LU.stopSimulation(liquid);
         GM.PutCupInWorkStation();
         state = CupState.IN_WORKING_STATION;
     }
 
-    public void fillCupWithBase(GameMGR.DrinkBase drinkBase)
+    public void fillCupWithBase(GameMGR.DrinkBase drinkBase, int amount = 2500, int PPS = 1000)
     {
         this.drink.drinkBase = drinkBase;
         state = CupState.HAS_BASE;
+        LU.ChangeMaxNumParticles(liquid, amount);
+        LU.ChangeParticlesPerSecond(liquid, PPS);
+        LU.changeColorOfLiquid(liquid, drinkBase);
         liquid.gameObject.SetActive(true);
-        LU.changeColorOfLiquid(liquid,drinkBase);
     }
 
     internal void putAddOn(GameObject addOnPrefab, GameMGR.AddOn addOn)
     {
         if(addOn != GameMGR.AddOn.NONE)
         {
-            Instantiate(addOnPrefab, transform);
+            Instantiate(addOnPrefab, addonPos.transform);
             this.drink.addOn = addOn;
         }
     }

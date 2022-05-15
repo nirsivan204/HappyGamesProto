@@ -101,9 +101,11 @@ public class GameMGR : MonoBehaviour
     }
 
 
-    internal void putAddOnInCup(AddOn addOn)
+    internal void putAddOnInCup(int i)
     {
-        cupInProgress.putAddOn(addOnPrefabsDictionary[(int)addOn], addOn);
+        AddOn addOn = (AddOn)currentAddons[i];
+        cupInProgress.putAddOn(addOnPrefabsDictionary[currentAddons[i]], addOn);
+        buttonMGR.showManu(false);
     }
 
     public void serveDrink()
@@ -137,7 +139,7 @@ public class GameMGR : MonoBehaviour
             }
             else
             {
-                ShowRequest(requests[shakesServed]);
+                ShowRequest();
             }
         }
     }
@@ -145,7 +147,7 @@ public class GameMGR : MonoBehaviour
     public void StartLevel()
     {
         print("start");
-        ShowRequest(requests[0]);
+        Invoke("ShowRequest",0.5f);
         cameraMGR.ChangeState(CamerasMGR.CamerasStates.INGREDIANTS);
         currentIngredients = new int[3] { (int)DrinkBase.CARROT, (int)DrinkBase.MEAT, (int)DrinkBase.BANANAS };
         buttonMGR.UpdateButtons(ButtonMGR.SpriteGroups.INGREDIANTS, currentIngredients);
@@ -156,17 +158,19 @@ public class GameMGR : MonoBehaviour
 
     }
 
-    void ShowRequest(Drink request)
+    void ShowRequest()
     {
         if(cupInDisplay != null)
         {
             Destroy(cupInDisplay.gameObject);
         }
+        Drink request = requests[shakesServed];
         cupInDisplay = Instantiate(CupsPrefabDisctionary[(int)request.cupType], requestPosition.transform).GetComponent<Cup>();
         cupInDisplay.init(this, LU, (int)request.cupType);
-        cupInDisplay.fillCupWithBase(request.drinkBase);
         cupInDisplay.putAddOn(addOnPrefabsDictionary[(int)request.addOn],request.addOn);
+        cupInDisplay.fillCupWithBase(request.drinkBase, 20000, 5000);
         cupInDisplay.State = Cup.CupState.ON_DISPLAY;
+
     }
-    
+
 }
