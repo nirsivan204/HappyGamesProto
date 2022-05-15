@@ -137,7 +137,7 @@ public class GameMGR : MonoBehaviour
             }
             else
             {
-                //ShowRequest(requests[shakesServed]);
+                ShowRequest(requests[shakesServed]);
             }
         }
     }
@@ -145,7 +145,7 @@ public class GameMGR : MonoBehaviour
     public void StartLevel()
     {
         print("start");
-        //ShowRequest(requests[0]);
+        ShowRequest(requests[0]);
         cameraMGR.ChangeState(CamerasMGR.CamerasStates.INGREDIANTS);
         currentIngredients = new int[3] { (int)DrinkBase.CARROT, (int)DrinkBase.MEAT, (int)DrinkBase.BANANAS };
         buttonMGR.UpdateButtons(ButtonMGR.SpriteGroups.INGREDIANTS, currentIngredients);
