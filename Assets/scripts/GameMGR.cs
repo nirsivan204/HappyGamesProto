@@ -24,7 +24,6 @@ public class GameMGR : MonoBehaviour
     private int[] currentIngredients;
     private int[] currentAddons;
     [SerializeField] LiquidUtility LU;
-    [SerializeField] private Animator horse;
     [SerializeField] Customer[] customers;
 
     public enum DrinkBase
@@ -115,11 +114,10 @@ public class GameMGR : MonoBehaviour
         if (shakesServed < requests.Count)
         {
             Drink required = requests[shakesServed];
-            shakesServed++;
             if (drinkInProgress.isEqual(required))
             {
                 print("success");
-                horse.SetTrigger("Success");
+                customers[shakesServed].goodServe();
                 musicMGR.Play_Sound(MusicMGR.SoundTypes.SUCCESS);
                 Destroy(cupInProgress.gameObject);
                 
@@ -127,10 +125,12 @@ public class GameMGR : MonoBehaviour
             else
             {
                 print("fail");
-                horse.SetTrigger("Failure");
+                customers[shakesServed].badServe();
                 musicMGR.Play_Sound(MusicMGR.SoundTypes.FAIL);
                 Destroy(cupInProgress.gameObject);
             }
+            shakesServed++;
+
             IEnumerator finisheCoroutine = endServe();
             StartCoroutine(finisheCoroutine);
         }
@@ -148,10 +148,6 @@ public class GameMGR : MonoBehaviour
         {
             IEnumerator newCustomerCoroutine = newCustomer();
             StartCoroutine(newCustomerCoroutine);
-/*            currentIngredients = new int[3] { (int)DrinkBase.CARROT, (int)DrinkBase.MEAT, (int)DrinkBase.BANANAS };
-            buttonMGR.UpdateButtons(ButtonMGR.SpriteGroups.INGREDIANTS, currentIngredients);
-            buttonMGR.showManu(true);
-            cameraMGR.ChangeState(CamerasMGR.CamerasStates.INGREDIANTS);*/
         }
     }
 

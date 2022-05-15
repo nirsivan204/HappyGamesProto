@@ -21,6 +21,15 @@ public class Customer : MonoBehaviour
         animator.SetTrigger("Walk");
     }
 
+    public void goodServe()
+    {
+        animator.SetTrigger("Success");
+    }
+
+    public void badServe()
+    {
+        animator.SetTrigger("Failure");
+    }
     void Update()
     {
         if (canMove)
