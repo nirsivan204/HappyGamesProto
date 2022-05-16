@@ -80,10 +80,10 @@ public class Mixer : MonoBehaviour, IClikable
 
     private void startMixing()
     {
-        //MM.Play_Sound(MusicMGR.SoundTypes.mixerRun, true);
+        MM.Play_Sound(MusicMGR.SoundTypes.mixerRun, true);
         isMixing = true;
-        //liquid.gameObject.SetActive(true);
-        buttonMGR.playVideo();
+        liquid.gameObject.SetActive(true);
+        //buttonMGR.playVideo();
         LU.changeDensityOfLiquid(liquid, spiningLiquidDensity);
         if (!MixStarted && baseInMixer != GameMGR.DrinkBase.NONE)
         {
