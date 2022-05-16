@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="63208781-0fba-4c49-b112-b13e4d1923c4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/art/ANIMS/IDLES/horse_budy_004.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/art/ANIMS/IDLES/horse_budy_004.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/art/ANIMS/IDLES/mouse_budy_002.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/art/ANIMS/IDLES/mouse_budy_002.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/material/New Material 2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/material/New Material 2.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.HappyGamesProto/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HappyGamesProto/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +67,7 @@
       <updated>1652529529065</updated>
       <workItem from="1652529539022" duration="1000" />
       <workItem from="1652600635447" duration="5257000" />
+      <workItem from="1652694026840" duration="601000" />
     </task>
     <servers />
   </component>
