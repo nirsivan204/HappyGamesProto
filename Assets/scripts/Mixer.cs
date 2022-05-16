@@ -1,4 +1,4 @@
-using com.zibra.liquid.Solver;
+//using com.zibra.liquid.Solver;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,9 +20,9 @@ public class Mixer : MonoBehaviour, IClikable
     private Cup cupInMixer;
     [SerializeField] GameObject insideMixerSpot;
     GameObject ingInsideMixer = null;
-    [SerializeField] ZibraLiquid liquid;
-    float restingLiquidDensity = 8;
-    float spiningLiquidDensity = 2.41f;
+    //[SerializeField] ZibraLiquid liquid;
+    //float restingLiquidDensity = 8;
+    //float spiningLiquidDensity = 2.41f;
     private bool canBeUsed = false;
     public GameObject CupPlace { get => cupPlace; set => cupPlace = value; }
     public bool CanBeUsed { get => canBeUsed; set => canBeUsed = value; }
@@ -30,12 +30,12 @@ public class Mixer : MonoBehaviour, IClikable
 
     public void putInsideMixer(GameObject ingrediant, GameMGR.DrinkBase type )
     {
-        //if (!isMixing)
-       // {
+        if (!isMixing)
+        {
             ingInsideMixer = Instantiate(ingrediant, insideMixerSpot.transform);
             ingInsideMixer.transform.localPosition = Vector3.zero;
             baseInMixer = type;
-        //}
+        }
     }
 
     public void PutCupInMixer(Cup cup)

@@ -1,4 +1,4 @@
-using com.zibra.liquid.Solver;
+//using com.zibra.liquid.Solver;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +10,7 @@ public class LiquidUtility: MonoBehaviour
 
     public Color[] ColorsPerBase { get => colorsPerBase; set => colorsPerBase = value; }
 
-    public void changeColorOfLiquid(ZibraLiquid liquid , GameMGR.DrinkBase drinkBase)
+/*    public void changeColorOfLiquid(ZibraLiquid liquid , GameMGR.DrinkBase drinkBase)
     {
         liquid.materialParameters.Color = colorsPerBase[(int)drinkBase];
     }
@@ -28,6 +28,6 @@ public class LiquidUtility: MonoBehaviour
     public void ChangeParticlesPerSecond(ZibraLiquid liquid, int amount)
     {
         ((com.zibra.liquid.Manipulators.ZibraLiquidEmitter)liquid.GetManipulatorList()[0]).ParticlesPerSec = amount;
-    }
+    }*/
 
 }

@@ -1,4 +1,4 @@
-using com.zibra.liquid.Solver;
+//using com.zibra.liquid.Solver;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using UnityEngine;
 public class Cup : MonoBehaviour, IClikable
 {
     // Start is called before the first frame update
-    [SerializeField] ZibraLiquid liquid;
+    //[SerializeField] ZibraLiquid liquid;
     [SerializeField] GameObject addonPos;
     [SerializeField] MeshRenderer fill;
     LiquidUtility LU;
