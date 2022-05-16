@@ -30,12 +30,12 @@ public class Mixer : MonoBehaviour, IClikable
 
     public void putInsideMixer(GameObject ingrediant, GameMGR.DrinkBase type )
     {
-        if (!isMixing)
-        {
+        //if (!isMixing)
+       // {
             ingInsideMixer = Instantiate(ingrediant, insideMixerSpot.transform);
             ingInsideMixer.transform.localPosition = Vector3.zero;
             baseInMixer = type;
-        }
+        //}
     }
 
     public void PutCupInMixer(Cup cup)
@@ -57,12 +57,8 @@ public class Mixer : MonoBehaviour, IClikable
             {
                 if (isMixReady && isCupInMixer)
                 {
-                    cupInMixer.fillCupWithBase(baseInMixer);
-                    MixStarted = false;
-                    baseInMixer = GameMGR.DrinkBase.NONE;
-                    isMixReady = false;
-                    LU.changeDensityOfLiquid(liquid, restingLiquidDensity);
-                    Invoke("emptyMixer", 0.5f);
+                    finishMixerActivity();
+                    canBeUsed = false;
                 }
                 else
                 {
@@ -70,6 +66,17 @@ public class Mixer : MonoBehaviour, IClikable
                 }
             }
         }
+    }
+
+    public void finishMixerActivity()
+    {
+        cupInMixer.fillCupWithBase(baseInMixer);
+        MixStarted = false;
+        //baseInMixer = GameMGR.DrinkBase.NONE;
+        isMixReady = false;
+        isMixing = false;
+        //LU.changeDensityOfLiquid(liquid, restingLiquidDensity);
+        //Invoke("emptyMixer", 0.5f);
     }
 
     public void takeCupOut()
@@ -80,31 +87,31 @@ public class Mixer : MonoBehaviour, IClikable
 
     private void startMixing()
     {
-        MM.Play_Sound(MusicMGR.SoundTypes.mixerRun, true);
-        isMixing = true;
-        liquid.gameObject.SetActive(true);
-        //buttonMGR.playVideo();
-        LU.changeDensityOfLiquid(liquid, spiningLiquidDensity);
+        //MM.Play_Sound(MusicMGR.SoundTypes.mixerRun, true);
+        //isMixing = true;
+        //liquid.gameObject.SetActive(true);
+        buttonMGR.playVideo(baseInMixer,cupInMixer.Drink.cupType);
+        //LU.changeDensityOfLiquid(liquid, spiningLiquidDensity);
         if (!MixStarted && baseInMixer != GameMGR.DrinkBase.NONE)
         {
             MixStarted = true;
             mixTotalTime = 0;
             Destroy(ingInsideMixer);
-            LU.changeColorOfLiquid(liquid, baseInMixer);
+            //LU.changeColorOfLiquid(liquid, baseInMixer);
         }
     }
 
-    private void stopMixing()
+    public void stopMixing()
     {
-        MM.Play_Sound(MusicMGR.SoundTypes.mixerEnd);
+        //MM.Play_Sound(MusicMGR.SoundTypes.mixerEnd);
         isMixing = false;
-        LU.changeDensityOfLiquid(liquid,restingLiquidDensity);
+        //LU.changeDensityOfLiquid(liquid,restingLiquidDensity);
     }
 
     private void emptyMixer()
     {
-        liquid.gameObject.SetActive(false);
-        LU.changeDensityOfLiquid(liquid, spiningLiquidDensity);
+        //liquid.gameObject.SetActive(false);
+        //LU.changeDensityOfLiquid(liquid, spiningLiquidDensity);
     }
     // Update is called once per frame
     void Update()

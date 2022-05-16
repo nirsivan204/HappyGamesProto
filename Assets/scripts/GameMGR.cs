@@ -19,12 +19,15 @@ public class GameMGR : MonoBehaviour
     Cup cupInProgress;
     [SerializeField] MusicMGR musicMGR;
     [SerializeField] GameObject requestPosition;
+    [SerializeField] GameObject requestShowParent;
     [SerializeField] CamerasMGR cameraMGR;
     Cup cupInDisplay = null;
     private int[] currentIngredients;
     private int[] currentAddons;
     [SerializeField] LiquidUtility LU;
     [SerializeField] Customer[] customers;
+
+    public Mixer Mixer { get => mixer; set => mixer = value; }
 
     public enum DrinkBase
     {
@@ -76,6 +79,7 @@ public class GameMGR : MonoBehaviour
             drinkInProgress = cupInProgress.Drink;
             mixer.PutCupInMixer(cupInProgress);
             mixer.CanBeUsed = true;
+            requestShowParent.SetActive(false);
             cameraMGR.ChangeState(CamerasMGR.CamerasStates.MIXER);
         }
     }
@@ -89,6 +93,7 @@ public class GameMGR : MonoBehaviour
         cupInProgress.transform.localPosition = Vector3.zero;
         mixer.takeCupOut();
         mixer.CanBeUsed = false;
+        requestShowParent.SetActive(true);
         cameraMGR.ChangeState(CamerasMGR.CamerasStates.ADDON_STATION);
     }
 
@@ -140,6 +145,7 @@ public class GameMGR : MonoBehaviour
     IEnumerator endServe()
     {
         Destroy(cupInDisplay.gameObject);
+        requestShowParent.SetActive(false);
         yield return new WaitForSeconds(4);
         if (shakesServed == requests.Count)
         {
@@ -170,6 +176,7 @@ public class GameMGR : MonoBehaviour
             Destroy(cupInDisplay.gameObject);
         }
         Drink request = requests[shakesServed];
+        requestShowParent.SetActive(true);
         cupInDisplay = Instantiate(CupsPrefabDisctionary[(int)request.cupType], requestPosition.transform).GetComponent<Cup>();
         cupInDisplay.init(this, LU, (int)request.cupType);
         cupInDisplay.putAddOn(addOnPrefabsDictionary[(int)request.addOn],request.addOn);

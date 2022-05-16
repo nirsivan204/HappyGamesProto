@@ -9,6 +9,7 @@ public class Cup : MonoBehaviour, IClikable
     // Start is called before the first frame update
     [SerializeField] ZibraLiquid liquid;
     [SerializeField] GameObject addonPos;
+    [SerializeField] MeshRenderer fill;
     LiquidUtility LU;
     public enum CupState
     {
@@ -22,17 +23,18 @@ public class Cup : MonoBehaviour, IClikable
     private GameMGR.Drink drink;
     private CupState state = CupState.NONE;
     private GameMGR GM;
-    private CupsDispanser.CupType cupType;
+    //private CupsDispanser.CupType cupType;
 
     public GameMGR.Drink Drink { get => drink; set => drink = value; }
     public CupState State { get => state; set => state = value; }
+    //public CupsDispanser.CupType CupType { get => cupType; set => cupType = value; }
 
     public void init(GameMGR gameMGR, LiquidUtility LU, int cupType)
     {
-        drink = new GameMGR.Drink();
+        this.drink = new GameMGR.Drink();
         GM = gameMGR;
         this.LU = LU;
-        this.cupType = (CupsDispanser.CupType)cupType;
+        this.drink.cupType = (CupsDispanser.CupType)cupType;
     }
 
     public void OnClick()
@@ -62,10 +64,12 @@ public class Cup : MonoBehaviour, IClikable
     {
         this.drink.drinkBase = drinkBase;
         state = CupState.HAS_BASE;
-        LU.ChangeMaxNumParticles(liquid, amount);
-        LU.ChangeParticlesPerSecond(liquid, PPS);
-        LU.changeColorOfLiquid(liquid, drinkBase);
-        liquid.gameObject.SetActive(true);
+        fill.gameObject.SetActive(true);
+        fill.material.color = LU.ColorsPerBase[(int)drinkBase];
+        //LU.ChangeMaxNumParticles(liquid, amount);
+        //LU.ChangeParticlesPerSecond(liquid, PPS);
+        //LU.changeColorOfLiquid(liquid, drinkBase);
+        //liquid.gameObject.SetActive(true);
     }
 
     internal void putAddOn(GameObject addOnPrefab, GameMGR.AddOn addOn)
