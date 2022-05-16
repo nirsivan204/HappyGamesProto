@@ -85,7 +85,8 @@ public class GameMGR : MonoBehaviour
         currentAddons = new int[3] { (int)AddOn.ICE_CUBES, (int)AddOn.ICE_CUBES, (int)AddOn.ICE_CUBES };
         buttonMGR.UpdateButtons(ButtonMGR.SpriteGroups.ADDONS, currentAddons);
         buttonMGR.showManu(true);
-        cupInProgress.transform.position = workingStation.transform.position;
+        cupInProgress.transform.parent = workingStation.transform;
+        cupInProgress.transform.localPosition = Vector3.zero;
         mixer.takeCupOut();
         mixer.CanBeUsed = false;
         cameraMGR.ChangeState(CamerasMGR.CamerasStates.ADDON_STATION);

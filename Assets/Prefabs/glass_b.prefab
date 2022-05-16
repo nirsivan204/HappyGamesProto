@@ -25,12 +25,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5164107434019528921}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0, y: 0.0684, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8335568504181785468}
+  m_Father: {fileID: 6734564781241433035}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &8710256174959946997
@@ -112,7 +112,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8335568504181785468}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8711707465797917126
 GameObject:
@@ -144,9 +144,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6249543813043441613}
   - {fileID: 9003896328755803926}
   - {fileID: 7633434049052935102}
+  - {fileID: 6734564781241433035}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -162,7 +162,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.07}
 --- !u!114 &-2198974455203226301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +177,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   liquid: {fileID: 256287256079308792}
   addonPos: {fileID: 6453295283747820311}
+--- !u!1 &8924443370516159296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6734564781241433035}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6734564781241433035
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8924443370516159296}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6249543813043441613}
+  m_Father: {fileID: 8335568504181785468}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9046322091827166578
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +239,7 @@ Transform:
   m_Children:
   - {fileID: 256287256079308775}
   m_Father: {fileID: 8335568504181785468}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4854058357809821646
 PrefabInstance:
@@ -263,6 +295,18 @@ PrefabInstance:
     - target: {fileID: 4671244076573794354, guid: 9f3031e073eb8044ca36673fae73c957, type: 3}
       propertyPath: m_Name
       value: Zibra Liquid 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671244077915655633, guid: 9f3031e073eb8044ca36673fae73c957, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.146014
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671244077915655633, guid: 9f3031e073eb8044ca36673fae73c957, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.422
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671244077915655633, guid: 9f3031e073eb8044ca36673fae73c957, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.002
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f3031e073eb8044ca36673fae73c957, type: 3}
