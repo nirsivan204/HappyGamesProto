@@ -7,11 +7,13 @@ using UnityEngine.UI;
 public class counterstar : MonoBehaviour
 {
     [SerializeField] TMP_Text scoreval;
+    [SerializeField] TMP_Text headlineText;
     private int levelScore;
     private int totalScore;
     [SerializeField] int growthRate;
     [SerializeField] Image[] starsImgs;
     private bool isGameOver;
+
     // Update is called once per frame
     void Update()
     {
@@ -29,6 +31,24 @@ public class counterstar : MonoBehaviour
         {
             starsImgs[i].enabled = true;
         }
+        string headline = "";
+        switch (totalScore)
+        {
+            case 0:
+                headline = "LAME";
+                break;
+            case 1:
+                headline = "NICE";
+                break;
+            case 2:
+                headline = "GOOD";
+                break;
+            case 3:
+                headline = "PERFECT";
+                break;
+
+        }
+        headlineText.text = headline;
     }
 
     public void Counter()
