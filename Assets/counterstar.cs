@@ -32,7 +32,7 @@ public class counterstar : MonoBehaviour
             starsImgs[i].enabled = true;
         }
         string headline = "";
-        switch (totalScore)
+        switch (levelScore)
         {
             case 0:
                 headline = "LAME";
