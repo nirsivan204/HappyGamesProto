@@ -2,73 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class counterstar : MonoBehaviour
 {
-    public TMP_Text scoreval;
-   
-  //  public TMP_Text endscoreval;
-//    public TMP_Text incscoretext;
- //   public TMP_Text gameovertext;
-    
-    public int scores;
-    public int endScores;
-  //  public int scorevalue; 
-    public int growthRate;
-
-    public bool gameover;
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    [SerializeField] TMP_Text scoreval;
+    private int levelScore;
+    private int totalScore;
+    [SerializeField] int growthRate;
+    [SerializeField] Image[] starsImgs;
+    private bool isGameOver;
     // Update is called once per frame
     void Update()
     {
-        if (gameover == true)
+        if (isGameOver == true)
         {
             Counter();
-        }
-        
-      
-      // endscoreval.text = endScores.ToString("0");
-      /*  
-        if (Input.GetKeyDown("space"))
-        {
-            scores += scorevalue;    
-        }
-              
-        if (Input.GetKeyDown("esc"))
-        {
-            gameover = true;
-        }
-
-        if (gameover == true)
-        {
-            GameOver();
-        }
-*/
-                    
-    
+        }    
     }
-    
-    
+
+    public void init(int totalScore, int levelScore)
+    {
+        this.totalScore = totalScore;
+        this.levelScore = levelScore;
+        for (int i = 0; i < levelScore; i++) 
+        {
+            starsImgs[i].enabled = true;
+        }
+    }
+
     public void Counter()
     {
-        if (endScores != scores && scores > endScores)
+        if (levelScore > totalScore)
         {
-            endScores += growthRate;
-            print(endScores);
-            scoreval.text = endScores.ToString("0");
+            totalScore += growthRate;
+            print(totalScore);
+            scoreval.text = totalScore.ToString();
            
         }
     }
 
-    public void On2()
+    public void On()
     {
-        gameover = true;
+        isGameOver = true;
     }
 }

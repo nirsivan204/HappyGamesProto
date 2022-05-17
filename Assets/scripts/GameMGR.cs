@@ -28,6 +28,11 @@ public class GameMGR : MonoBehaviour
     [SerializeField] Customer[] customers;
     public Mixer Mixer { get => mixer; set => mixer = value; }
 
+    private int totalScore;
+    private int levelScore;
+    private int totalStars;
+    private int levelStars;
+    private static int PRICE_OF_SHAKE = 200;
 
     public void getNewCup(int cupType)
     {
@@ -47,7 +52,7 @@ public class GameMGR : MonoBehaviour
 
     internal void PutCupInWorkStation()
     {
-        currentAddons = new int[3] { (int)Drink.AddOn.ICE_CUBES, (int)Drink.AddOn.ICE_CUBES, (int)Drink.AddOn.ICE_CUBES };
+        currentAddons = new int[3] { (int)Drink.AddOn.ICE_CUBES, (int)Drink.AddOn.STRAW, (int)Drink.AddOn.CURRLY_STRAW };
         buttonMGR.UpdateButtons(ButtonMGR.SpriteGroups.ADDONS, currentAddons);
         buttonMGR.showManu(true);
         cupInProgress.transform.parent = workingStation.transform;
@@ -87,7 +92,9 @@ public class GameMGR : MonoBehaviour
                 customers[shakesServed].goodServe();
                 musicMGR.Play_Sound(MusicMGR.SoundTypes.SUCCESS);
                 Destroy(cupInProgress.gameObject);
-                
+                levelStars++;
+                levelScore += PRICE_OF_SHAKE;
+
             }
             else
             {
@@ -127,7 +134,9 @@ public class GameMGR : MonoBehaviour
 
     public void EndLevel()
     {
-
+        buttonMGR.ShowEndScene(totalScore, levelScore, totalStars, levelStars);
+        totalScore += levelScore;
+        totalStars += levelStars;
     }
 
     void ShowRequest()

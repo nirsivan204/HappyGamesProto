@@ -7,68 +7,38 @@ public class counter : MonoBehaviour
 {
     public TMP_Text scoreval;
     public TMP_Text mainscore;
-  //  public TMP_Text endscoreval;
-//    public TMP_Text incscoretext;
- //   public TMP_Text gameovertext;
     
-    public int scores;
-    public int endScores;
-  //  public int scorevalue; 
-    public int growthRate;
-
-    public bool gameover;
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    int levelScore;
+    int totalScore;
+    [SerializeField] int growthRate;
+    private bool isGameOver;
     void Update()
     {
-        if (gameover == true)
+        if (isGameOver)
         {
             Counter();
-        }
-        
-      
-      // endscoreval.text = endScores.ToString("0");
-      /*  
-        if (Input.GetKeyDown("space"))
-        {
-            scores += scorevalue;    
-        }
-              
-        if (Input.GetKeyDown("esc"))
-        {
-            gameover = true;
-        }
-
-        if (gameover == true)
-        {
-            GameOver();
-        }
-*/
-                    
+        }         
     
     }
-    
-    
+    public void init(int totalScore, int levelScore)
+    {
+        this.totalScore = totalScore;
+        this.levelScore = levelScore;
+    }
+
     public void Counter()
     {
-        if (endScores != scores && scores > endScores)
+        if (levelScore > totalScore)
         {
-            endScores += growthRate;
-            print(endScores);
-            scoreval.text = endScores.ToString("0");
-            mainscore.text = endScores.ToString("0");
+            totalScore += growthRate;
+            print(totalScore);
+            scoreval.text = totalScore.ToString("0");
+            mainscore.text = totalScore.ToString("0");
         }
     }
 
-    public void On()
+    public void On2()
     {
-        gameover = true;
+        isGameOver = true;
     }
 }

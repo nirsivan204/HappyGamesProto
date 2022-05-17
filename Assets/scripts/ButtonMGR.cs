@@ -10,10 +10,13 @@ public class ButtonMGR : MonoBehaviour
     [SerializeField] GameMGR GM;
     [SerializeField] GameObject ingrediantsManu;
     [SerializeField] GameObject tapToStartScene;
+    [SerializeField] GameObject finishLevelScene;
+    [SerializeField] counter coinsCounter;
+    [SerializeField] counterstar starsCounter;
+
     [SerializeField] Sprite[] ingrediantsSpriteDictionary; // should be done with dictionary, but cannot be serialized and needed to be simplified for the prototype
     [SerializeField] Sprite[] addOnSpriteDictionary; // should be done with dictionary, but cannot be serialized and needed to be simplified for the prototype
     [SerializeField] Image[] buttonsImgs;
-    [SerializeField] GameObject order;
     private SpriteGroups currentGroup;
     [SerializeField] GameObject playScene;
     [SerializeField] RawImage Image;
@@ -140,6 +143,13 @@ public class ButtonMGR : MonoBehaviour
                 currentGroup = SpriteGroups.ADDONS;
             }
         }
+    }
+
+    public void ShowEndScene(int totalScore,int coinsEarnd, int totalStars, int starsEarnd)
+    {
+        coinsCounter.init(totalScore, coinsEarnd);
+        starsCounter.init(totalStars, starsEarnd);
+        finishLevelScene.SetActive(true);
     }
 
 }
