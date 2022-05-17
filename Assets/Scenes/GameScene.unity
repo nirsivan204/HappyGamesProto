@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4462759, g: 0.49565536, b: 0.5730884, a: 1}
+  m_IndirectSpecularColor: {r: 0.44887388, g: 0.49893802, b: 0.5757032, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -320,7 +320,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5625, y: 1}
+    m_SensorSize: {x: 0.6657572, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4277,7 +4277,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5625, y: 1}
+    m_SensorSize: {x: 0.6657572, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -11471,7 +11471,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5625, y: 1}
+    m_SensorSize: {x: 0.6657572, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -11609,7 +11609,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5625, y: 1}
+    m_SensorSize: {x: 0.6657572, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12363,7 +12363,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5625, y: 1}
+    m_SensorSize: {x: 0.6657572, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -13593,8 +13593,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 394fa39b4219b4a49a9b64ee3bf35481, type: 3}
   addOnSpriteDictionary:
   - {fileID: 21300000, guid: df40d3e5dec72471d973a4a020ddad98, type: 3}
-  - {fileID: 21300000, guid: df584505bc0f53f469f278b3d5172797, type: 3}
-  - {fileID: 21300000, guid: 89d3b65d604baa84e81fb52838772ab2, type: 3}
+  - {fileID: 21300000, guid: 12aedeef344e28c43be7e4567a7e1ad6, type: 3}
+  - {fileID: 21300000, guid: d369fe5b7f48a2d41a937effedb74823, type: 3}
   buttonsImgs:
   - {fileID: 423054177}
   - {fileID: 870424829}
@@ -15505,7 +15505,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5625, y: 1}
+    m_SensorSize: {x: 0.6657572, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -16907,7 +16907,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.5625, y: 1}
+    m_SensorSize: {x: 0.6657572, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
