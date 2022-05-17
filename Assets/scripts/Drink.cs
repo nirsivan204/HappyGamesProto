@@ -18,6 +18,7 @@ public class Drink
     {
         ICE_CUBES,
         STRAW,
+        CURRLY_STRAW,
         NONE
     }
     public DrinkBase drinkBase = DrinkBase.NONE;
