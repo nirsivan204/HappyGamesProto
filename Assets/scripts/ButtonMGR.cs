@@ -21,12 +21,20 @@ public class ButtonMGR : MonoBehaviour
     [SerializeField] VideoClip[] cup1videos;
     [SerializeField] VideoClip[] cup2videos;
     [SerializeField] VideoClip[] cup3videos;
+    [SerializeField] GameObject debugManu;
+    bool isDebugMode = false;
+
     public enum SpriteGroups
     {
         INGREDIANTS,
         ADDONS,
     }
 
+    public void toggleDebugManu()
+    {
+        debugManu.SetActive(!isDebugMode);
+        isDebugMode = !isDebugMode;
+    }
 
     public void ButtonPressed(int id)
     {
