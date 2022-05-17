@@ -19,51 +19,15 @@ public class GameMGR : MonoBehaviour
     Cup cupInProgress;
     [SerializeField] MusicMGR musicMGR;
     [SerializeField] GameObject requestPosition;
+    [SerializeField] GameObject requestShowParent;
     [SerializeField] CamerasMGR cameraMGR;
     Cup cupInDisplay = null;
     private int[] currentIngredients;
     private int[] currentAddons;
     [SerializeField] LiquidUtility LU;
     [SerializeField] Customer[] customers;
+    public Mixer Mixer { get => mixer; set => mixer = value; }
 
-    public enum DrinkBase
-    {
-        CARROT,
-        BANANAS,
-        MEAT,
-        NONE
-    }
-
-    public enum AddOn
-    {
-        ICE_CUBES,
-        STRAW,
-        NONE
-    }
-
-
-    [Serializable]
-    public class Drink
-    {
-        public DrinkBase drinkBase = DrinkBase.NONE;
-        public AddOn addOn = AddOn.NONE;
-        public CupsDispanser.CupType cupType;
-        public bool isEqual(Drink required)
-        {
-            if(required.cupType == this.cupType)
-            {
-                if (required.drinkBase == this.drinkBase)
-                {
-                    if (required.addOn == this.addOn)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-
-    }
 
     public void getNewCup(int cupType)
     {
@@ -76,25 +40,27 @@ public class GameMGR : MonoBehaviour
             drinkInProgress = cupInProgress.Drink;
             mixer.PutCupInMixer(cupInProgress);
             mixer.CanBeUsed = true;
+            requestShowParent.SetActive(false);
             cameraMGR.ChangeState(CamerasMGR.CamerasStates.MIXER);
         }
     }
 
     internal void PutCupInWorkStation()
     {
-        currentAddons = new int[3] { (int)AddOn.ICE_CUBES, (int)AddOn.ICE_CUBES, (int)AddOn.ICE_CUBES };
+        currentAddons = new int[3] { (int)Drink.AddOn.ICE_CUBES, (int)Drink.AddOn.ICE_CUBES, (int)Drink.AddOn.ICE_CUBES };
         buttonMGR.UpdateButtons(ButtonMGR.SpriteGroups.ADDONS, currentAddons);
         buttonMGR.showManu(true);
         cupInProgress.transform.parent = workingStation.transform;
         cupInProgress.transform.localPosition = Vector3.zero;
         mixer.takeCupOut();
         mixer.CanBeUsed = false;
+        requestShowParent.SetActive(true);
         cameraMGR.ChangeState(CamerasMGR.CamerasStates.ADDON_STATION);
     }
 
     public void putInsideMixer(int i)
     {
-        DrinkBase drinkBase = (DrinkBase) currentIngredients[i];
+        int drinkBase = currentIngredients[i];
         mixer.putInsideMixer(ingrediantsPrefabsDictionary[currentIngredients[i]], drinkBase);
         cameraMGR.ChangeState(CamerasMGR.CamerasStates.CUPS);
         buttonMGR.showManu(false);
@@ -103,7 +69,7 @@ public class GameMGR : MonoBehaviour
 
     internal void putAddOnInCup(int i)
     {
-        AddOn addOn = (AddOn)currentAddons[i];
+        int addOn = currentAddons[i];
         cupInProgress.putAddOn(addOnPrefabsDictionary[currentAddons[i]], addOn);
         buttonMGR.showManu(false);
     }
@@ -140,6 +106,7 @@ public class GameMGR : MonoBehaviour
     IEnumerator endServe()
     {
         Destroy(cupInDisplay.gameObject);
+        requestShowParent.SetActive(false);
         yield return new WaitForSeconds(4);
         if (shakesServed == requests.Count)
         {
@@ -170,10 +137,11 @@ public class GameMGR : MonoBehaviour
             Destroy(cupInDisplay.gameObject);
         }
         Drink request = requests[shakesServed];
+        requestShowParent.SetActive(true);
         cupInDisplay = Instantiate(CupsPrefabDisctionary[(int)request.cupType], requestPosition.transform).GetComponent<Cup>();
         cupInDisplay.init(this, LU, (int)request.cupType);
-        cupInDisplay.putAddOn(addOnPrefabsDictionary[(int)request.addOn],request.addOn);
-        cupInDisplay.fillCupWithBase(request.drinkBase, 20000, 5000);
+        cupInDisplay.putAddOn(addOnPrefabsDictionary[(int)request.addOn],(int)request.addOn);
+        cupInDisplay.fillCupWithBase((int)request.drinkBase, 20000, 5000);
         cupInDisplay.State = Cup.CupState.ON_DISPLAY;
 
     }
@@ -191,7 +159,7 @@ public class GameMGR : MonoBehaviour
     public void startMakingShake()
     {
         cameraMGR.ChangeState(CamerasMGR.CamerasStates.INGREDIANTS);
-        currentIngredients = new int[3] { (int)DrinkBase.CARROT, (int)DrinkBase.MEAT, (int)DrinkBase.BANANAS };
+        currentIngredients = new int[3] { (int)Drink.DrinkBase.CARROT, (int)Drink.DrinkBase.MEAT, (int)Drink.DrinkBase.BANANAS };
         buttonMGR.UpdateButtons(ButtonMGR.SpriteGroups.INGREDIANTS, currentIngredients);
     }
 

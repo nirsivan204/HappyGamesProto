@@ -18,12 +18,23 @@ public class ButtonMGR : MonoBehaviour
     [SerializeField] GameObject playScene;
     [SerializeField] RawImage Image;
     [SerializeField] VideoPlayer videoPlayer;
+    [SerializeField] VideoClip[] cup1videos;
+    [SerializeField] VideoClip[] cup2videos;
+    [SerializeField] VideoClip[] cup3videos;
+    [SerializeField] GameObject debugManu;
+    bool isDebugMode = false;
+
     public enum SpriteGroups
     {
         INGREDIANTS,
         ADDONS,
     }
 
+    public void toggleDebugManu()
+    {
+        debugManu.SetActive(!isDebugMode);
+        isDebugMode = !isDebugMode;
+    }
 
     public void ButtonPressed(int id)
     {
@@ -79,16 +90,33 @@ public class ButtonMGR : MonoBehaviour
 
     }
 
-    public void playVideo()
+    public void playVideo(Drink.DrinkBase baseInMixer, CupsDispanser.CupType cupType)
     {
-        Image.gameObject.SetActive(true);
-        videoPlayer.Play();
-        videoPlayer.loopPointReached += EndReached;
+        if(baseInMixer != Drink.DrinkBase.NONE)
+        {
+            Image.gameObject.SetActive(true);
+            switch (cupType)
+            {
+                case CupsDispanser.CupType.A:
+                    videoPlayer.clip = cup1videos[(int)baseInMixer];
+                    break;
+                case CupsDispanser.CupType.B:
+                    videoPlayer.clip = cup2videos[(int)baseInMixer];
+                    break;
+                case CupsDispanser.CupType.C:
+                    videoPlayer.clip = cup3videos[(int)baseInMixer];
+                    break;
+            }
+            videoPlayer.Play();
+            videoPlayer.loopPointReached += EndReached;
+        }
     }
 
     void EndReached(VideoPlayer vp)
     {
+        GM.Mixer.stopMixing();
         Image.gameObject.SetActive(false);
+        GM.Mixer.finishMixerActivity();
     }
 
     public void UpdateButtons(SpriteGroups group, int[] spritesIdx)
@@ -113,4 +141,5 @@ public class ButtonMGR : MonoBehaviour
             }
         }
     }
+
 }

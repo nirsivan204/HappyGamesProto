@@ -10,6 +10,8 @@ public class Customer : MonoBehaviour
     // The target (cylinder) position.
     [SerializeField] Transform counter;
     [SerializeField] Transform outOfScreen;
+    [SerializeField] Transform parent;
+    bool isServed = false;
     Transform target;
 
     bool canMove = false;
@@ -34,6 +36,8 @@ public class Customer : MonoBehaviour
         canMove = false;
         animator.SetTrigger("Success");
         target = outOfScreen;
+        isServed = true;
+        animator.ResetTrigger("Idle");
         Invoke("startMoving", 4);
     }
 
@@ -42,6 +46,8 @@ public class Customer : MonoBehaviour
         canMove = false;
         animator.SetTrigger("Failure");
         target = outOfScreen;
+        isServed = true;
+        animator.ResetTrigger("Idle");
         Invoke("startMoving", 4);
     }
     void Update()
@@ -51,8 +57,8 @@ public class Customer : MonoBehaviour
             // Move our position a step closer to the target.
             var step = speed * Time.deltaTime; // calculate distance to move
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);
-
-            if (Vector3.Distance(transform.position, target.position) < 0.001f)
+            parent.transform.LookAt(target);
+            if (!isServed && Vector3.Distance(transform.position, target.position) < 0.001f)
             {
                 animator.SetTrigger("Idle");
             }
