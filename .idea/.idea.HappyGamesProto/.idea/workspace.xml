@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="63208781-0fba-4c49-b112-b13e4d1923c4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.HappyGamesProto/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.HappyGamesProto/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
-    </list>
+    <list default="true" id="63208781-0fba-4c49-b112-b13e4d1923c4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -69,6 +69,7 @@
       <workItem from="1652775867307" duration="2000" />
       <workItem from="1652776199670" duration="2085000" />
       <workItem from="1652781566099" duration="4882000" />
+      <workItem from="1652801976692" duration="1309000" />
     </task>
     <servers />
   </component>
