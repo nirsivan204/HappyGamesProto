@@ -13,7 +13,7 @@ public class Mixer : MonoBehaviour, IClikable
     [SerializeField] float timeToMix = 3;
     [SerializeField] LiquidUtility LU;
     private float mixTotalTime = 0;
-    private GameMGR.DrinkBase baseInMixer = GameMGR.DrinkBase.NONE;
+    private Drink.DrinkBase baseInMixer = Drink.DrinkBase.NONE;
     private bool isMixReady = false;
     private bool MixStarted = false;
     private bool isCupInMixer = false;
@@ -28,13 +28,13 @@ public class Mixer : MonoBehaviour, IClikable
     public bool CanBeUsed { get => canBeUsed; set => canBeUsed = value; }
     [SerializeField] ButtonMGR buttonMGR;
 
-    public void putInsideMixer(GameObject ingrediant, GameMGR.DrinkBase type )
+    public void putInsideMixer(GameObject ingrediant, int type )
     {
         if (!isMixing)
         {
             ingInsideMixer = Instantiate(ingrediant, insideMixerSpot.transform);
             ingInsideMixer.transform.localPosition = Vector3.zero;
-            baseInMixer = type;
+            baseInMixer = (Drink.DrinkBase)type;
         }
     }
 
@@ -70,7 +70,7 @@ public class Mixer : MonoBehaviour, IClikable
 
     public void finishMixerActivity()
     {
-        cupInMixer.fillCupWithBase(baseInMixer);
+        cupInMixer.fillCupWithBase((int)baseInMixer);
         MixStarted = false;
         //baseInMixer = GameMGR.DrinkBase.NONE;
         isMixReady = false;
@@ -92,7 +92,7 @@ public class Mixer : MonoBehaviour, IClikable
         //liquid.gameObject.SetActive(true);
         buttonMGR.playVideo(baseInMixer,cupInMixer.Drink.cupType);
         //LU.changeDensityOfLiquid(liquid, spiningLiquidDensity);
-        if (!MixStarted && baseInMixer != GameMGR.DrinkBase.NONE)
+        if (!MixStarted && baseInMixer != Drink.DrinkBase.NONE)
         {
             MixStarted = true;
             mixTotalTime = 0;
@@ -116,7 +116,7 @@ public class Mixer : MonoBehaviour, IClikable
     // Update is called once per frame
     void Update()
     {
-        if(isMixing && baseInMixer!= GameMGR.DrinkBase.NONE)
+        if(isMixing && baseInMixer!= Drink.DrinkBase.NONE)
         {
             mixTotalTime += Time.deltaTime;
             if(mixTotalTime > timeToMix)

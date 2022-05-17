@@ -90,9 +90,9 @@ public class ButtonMGR : MonoBehaviour
 
     }
 
-    public void playVideo(GameMGR.DrinkBase baseInMixer, CupsDispanser.CupType cupType)
+    public void playVideo(Drink.DrinkBase baseInMixer, CupsDispanser.CupType cupType)
     {
-        if(baseInMixer != GameMGR.DrinkBase.NONE)
+        if(baseInMixer != Drink.DrinkBase.NONE)
         {
             Image.gameObject.SetActive(true);
             switch (cupType)

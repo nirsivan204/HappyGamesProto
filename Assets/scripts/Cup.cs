@@ -20,18 +20,18 @@ public class Cup : MonoBehaviour, IClikable
         ON_DISPLAY,
 
     }
-    private GameMGR.Drink drink;
+    private Drink drink;
     private CupState state = CupState.NONE;
     private GameMGR GM;
     //private CupsDispanser.CupType cupType;
 
-    public GameMGR.Drink Drink { get => drink; set => drink = value; }
+    public Drink Drink { get => drink; set => drink = value; }
     public CupState State { get => state; set => state = value; }
     //public CupsDispanser.CupType CupType { get => cupType; set => cupType = value; }
 
     public void init(GameMGR gameMGR, LiquidUtility LU, int cupType)
     {
-        this.drink = new GameMGR.Drink();
+        this.drink = new Drink();
         GM = gameMGR;
         this.LU = LU;
         this.drink.cupType = (CupsDispanser.CupType)cupType;
@@ -60,9 +60,9 @@ public class Cup : MonoBehaviour, IClikable
         state = CupState.IN_WORKING_STATION;
     }
 
-    public void fillCupWithBase(GameMGR.DrinkBase drinkBase, int amount = 2500, int PPS = 1000)
+    public void fillCupWithBase(int drinkBase, int amount = 2500, int PPS = 1000)
     {
-        this.drink.drinkBase = drinkBase;
+        this.drink.drinkBase = (Drink.DrinkBase)drinkBase;
         state = CupState.HAS_BASE;
         fill.gameObject.SetActive(true);
         fill.material.color = LU.ColorsPerBase[(int)drinkBase];
@@ -72,12 +72,12 @@ public class Cup : MonoBehaviour, IClikable
         //liquid.gameObject.SetActive(true);
     }
 
-    internal void putAddOn(GameObject addOnPrefab, GameMGR.AddOn addOn)
+    internal void putAddOn(GameObject addOnPrefab, int addOn)
     {
-        if(addOn != GameMGR.AddOn.NONE)
+        if(addOn != (int)Drink.AddOn.NONE)
         {
             Instantiate(addOnPrefab, addonPos.transform);
-            this.drink.addOn = addOn;
+            this.drink.addOn = (Drink.AddOn)addOn;
         }
     }
 
