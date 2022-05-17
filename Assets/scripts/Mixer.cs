@@ -70,6 +70,7 @@ public class Mixer : MonoBehaviour, IClikable
 
     public void finishMixerActivity()
     {
+        canBeUsed = false;
         cupInMixer.fillCupWithBase((int)baseInMixer);
         MixStarted = false;
         //baseInMixer = GameMGR.DrinkBase.NONE;
